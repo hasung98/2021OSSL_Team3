@@ -20,6 +20,12 @@ int main (void){
         else if(menu == 2){
             count += createCalendar(&s[index++]);
         }
+        else if(menu == 3){
+            int no = selectDataNo(s,index);
+            if(no>0){
+                updateCalendar(&s[index++]);
+            }
+        }
 
     }
 }
