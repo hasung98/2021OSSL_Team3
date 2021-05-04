@@ -5,12 +5,13 @@ int main (void){
     int count = 0; 
     int index = 0; 
     int menu;
+    int exit =1;
 
-    while(1){
+    while(exit){
         menu = selectMenu();
         if(menu == 0) {
             printf("프로그램이 종료됩니다!\n");
-            break;
+            exit =0;
         }
         else if(menu == 1){
             listCalendar(s,index);
