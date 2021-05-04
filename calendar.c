@@ -141,6 +141,28 @@ void searchPlan_month(Calendar *s, int count){
     }
     else if(check == 2)
     {
+        int scnt = 0;
+        int s_month;
+        int s_day;
+        printf("월(Month)과 일(Day)로 일정을 검색합니다\n");
+        printf("검색을 원하시는 월과 일을 순서대로 입력해주세요\n");
+        printf("월: ");
+        scanf("%d",&s_month);
+        printf("일: ");
+        scanf("%d",&s_day);
+        printf("**********************************************\n");
+        printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+        for(int i=0; i<count; i++)
+        {
+            if(s[i].year == -1) continue;
+            if(s[i].month == s_month && s[i].day == s_day){
+                printf("%2d  ",i+1);
+                readProduct(s[i]);
+                scnt++;
+            }
+        }
+        if(scnt==0) printf("=> 검색된 데이터 없음!");
+        printf("\n");
 
     }
 }
