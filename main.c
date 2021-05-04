@@ -21,16 +21,16 @@ int main (){
                 continue;
             }
         }
-        else if(menu == 1){
-            listCalendar(s,index);
+        if(menu == 1){
+            listPlan(s,index);
         }
         else if(menu == 2){
-            count += createCalendar(&s[index++]);
+            count += createPlan(&s[index++]);
         }
         else if(menu == 3){
             int no = selectDataNo(s,index);
             if(no>0){
-                updateCalendar(&s[no-1]);
+                updatePlan(&s[no-1]);
             }
         }
         else if(menu == 4){
@@ -40,7 +40,7 @@ int main (){
                 printf("정말로 삭제하시겠습니까? (삭제를 하시려면 1을 입력하세요)");
                 scanf(" %d",&ok);
                 if(ok == 1){
-                    deleteCalendar(&s[no-1]);
+                    deletePlan(&s[no-1]);
                     count--;
                 }
             }
