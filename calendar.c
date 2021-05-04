@@ -60,7 +60,7 @@ void listCalendar(Calendar *p, int count){
     }
 } // 전체 일정 출력 함수
 
-int selectData(Calendar *p, int count){
+int selectDataNo(Calendar *p, int count){
     int num;
     listCalendar(p,count);
     printf("선택할 번호는 무엇입니까?(취소:0) ");
