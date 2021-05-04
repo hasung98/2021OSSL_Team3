@@ -100,7 +100,7 @@ void searchPlan_type(Calendar s[], int count){
         if(s[i].year == -1) continue;
         if(s[i].type==search){
             printf("%2d  ",i+1);
-            readProduct(s[i]);
+            readPlan(s[i]);
             scnt++;
         }
     }
@@ -132,7 +132,7 @@ void searchPlan_month(Calendar *s, int count){
             if(s[i].year == -1) continue;
             if(s[i].month==search){
               printf("%2d  ",i+1);
-                readProduct(s[i]);
+                readPlan(s[i]);
                 scnt++;
             }
         }
@@ -157,7 +157,7 @@ void searchPlan_month(Calendar *s, int count){
             if(s[i].year == -1) continue;
             if(s[i].month == s_month && s[i].day == s_day){
                 printf("%2d  ",i+1);
-                readProduct(s[i]);
+                readPlan(s[i]);
                 scnt++;
             }
         }

@@ -13,7 +13,7 @@ typedef struct{
 int selectMenu();
 void clearbuffer();
 int createPlan(Calendar *p);
-void readPlan(Calendar p);
+int readPlan(Calendar p);
 
 void listPlan(Calendar *p, int count);
 int selectDataNo(Calendar *p, int count);
