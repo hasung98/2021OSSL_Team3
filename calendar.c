@@ -136,7 +136,7 @@ void searchPlan_month(Calendar *s, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("=> 검색된 데이터 없음!");
+        if(scnt==0) printf("=> 해당 월에는 일정이 없습니다");
         printf("\n");
     }
     else if(check == 2)
@@ -161,9 +161,8 @@ void searchPlan_month(Calendar *s, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("=> 검색된 데이터 없음!");
+        if(scnt==0) printf("=> 해당 날짜에는 일정이 없습니다");
         printf("\n");
-
     }
 }
 

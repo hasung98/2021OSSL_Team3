@@ -12,19 +12,19 @@ typedef struct{
 
 int selectMenu();
 void clearbuffer();
-int createPlan(Calendar *s);
-void readPlan(Calendar *s);
+int createPlan(Calendar *p);
+void readPlan(Calendar p);
 
-void listPlan(Calendar *s, int count);
-int selectDataNo(Calendar *s, int count);
+void listPlan(Calendar *p, int count);
+int selectDataNo(Calendar *p, int count);
 
-void updatePlan(Calendar *s);
-void deletePlan(Calendar *s);
+int updatePlan(Calendar *p);
+int deletePlan(Calendar *p);
 
-void searchPlan_type(Calendar s[], int count);
-void searchPlan_month(Calendar s[], int count);
+void searchPlan_type(Calendar p[], int count);
+void searchPlan_month(Calendar p[], int count);
 
 void showCalendar();
 
-int loadFile(Calendar *s); //파일 불러오기
-void loadData(Calendar *s, int index); //파일 저장하기
+int loadData(Calendar *s); //파일 불러오기
+void saveData(Calendar *s, int index); //파일 저장하기
