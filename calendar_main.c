@@ -26,6 +26,17 @@ int main (void){
                 updateCalendar(&s[index++]);
             }
         }
-
+        else if(menu == 4){
+            int no = selectDataNo(s,index);
+            if(no>0){
+                int ok;
+                printf("정말로 삭제하시겠습니까? (삭제를 하시려면 1을 입력하세요)");
+                scanf(" %d",&ok);
+                if(ok == 1){
+                    deleteCalendar(&s[index++]);
+                    count--;
+                }
+            }
+        }
     }
 }
