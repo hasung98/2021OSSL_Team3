@@ -37,7 +37,7 @@ int main (){
             int no = selectDataNo(p,index);
             if(no>0){
                 int ok;
-                printf("정말로 삭제하시겠습니까? (삭제를 하시려면 1을 입력하세요)");
+                printf("정말로 삭제하시겠습니까?(삭제:1)");
                 scanf(" %d",&ok);
                 if(ok == 1){
                     deletePlan(&p[no-1]);
@@ -45,5 +45,11 @@ int main (){
                 }
             }
         }
+        else if (menu == 5){
+        }
+        else if (menu == 6){
+            showCalendar();
+        }
     }
+    return 0;
 }
