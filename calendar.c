@@ -20,7 +20,7 @@ void clearbuffer(){
     while (getchar() != '\n');
 }
 
-int create_plan(Calendar *p){
+int createPlan(Calendar *p){
     printf("ex) 년:2021 월:5 일:1 분류:2 과목명:OSS \n");
     fputs("년: ",stdout);
     clearbuffer();
@@ -109,8 +109,6 @@ void searchPlan_type(Calendar s[], int count){
 }
 
 void searchPlan_month(Calendar *s, int count){
-    int scnt = 0;
-    int search;
     int check = -1;
     while(check == 1 || check == 2){
         printf("월(Month)로 검색: 1 \n월(Month) & 일(Day)로 검색: 2\n");
