@@ -91,8 +91,18 @@ int deletePlan(Calendar *s){
     return 1;
 }
 
-void searchPlan_type(Calendar *s, int count){
- 
+void searchPlan_type(Calendar s[], int count){
+    int scnt = 0;
+    int search = 0;
+    printf("검색할 분류를 입력하세요(1.시험 2.과제 3.팀플): ");
+    scanf("%d",&search);
+    printf("**********************************************\n");
+    printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+    for(int i=0; i<count; i++)
+    {
+        if(s[i] == NULL) continue;
+        if(s[i] -> )
+    }
 }
 
 void searchPlan_month(Calendar *s, int count){
