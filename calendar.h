@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdio.h>
+
 typedef struct{
   int year; //년
   int month;//월
