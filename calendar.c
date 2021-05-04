@@ -84,3 +84,11 @@ int updateCalendar(Calendar *p){
     scanf("%[^\n]s", p->subject);
     return 1;
 } // 일정 수정 함수 
+
+int deleteCalendar(Calendar *s){
+    s->year = -1;
+    s->month = -1;
+    s-> day = -1;
+    printf(" ==> 삭제 되었습니다! ");
+    return 1;
+}
