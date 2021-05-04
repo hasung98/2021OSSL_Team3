@@ -100,9 +100,15 @@ void searchPlan_type(Calendar s[], int count){
     printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
     for(int i=0; i<count; i++)
     {
-        if(s[i] == NULL) continue;
-        if(s[i] -> )
+        if(s[i].year == -1) continue;
+        if(s[i].type==search){
+            printf("%2d  ",i+1);
+            readProduct(s[i]);
+            scnt++;
+        }
     }
+    if(scnt==0) printf("=> 검색된 데이터 없음!");
+    printf("\n");
 }
 
 void searchPlan_month(Calendar *s, int count){
