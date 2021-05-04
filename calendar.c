@@ -18,6 +18,7 @@ int selectMenu(){
     printf("4. 일정 삭제\n");
     printf("5. 달력 출력\n");
     printf("0. 종료\n");
+    printf("******* 한동 A+ 도우미 *******\n");
     printf("==> 원하는 메뉴는 무엇입니까? ");
     scanf(" %d",&menu);
     return menu;
@@ -58,3 +59,28 @@ void listCalendar(Calendar *p, int count){
         readCalendar(p[i]);
     }
 } // 전체 일정 출력 함수
+
+int selectData(Calendar *p, int count){
+    int num;
+    listCalendar(p,count);
+    printf("선택할 번호는 무엇입니까?(취소:0) ");
+    scanf(" %d",&num);
+    return num;
+} // data 선택 함수 
+
+int updateCalendar(Calendar *p){
+    fputs("수정할 년도: ",stdout);
+    clearbuffer();
+    scanf("%d",&p->year);
+    fputs("수정할 월: ",stdout);
+    scanf("%d",&p->month);
+    fputs("수정할 일: ",stdout);
+    scanf("%d",&p->day);
+    fputs("어떤 종류의 일정입니까?(과제, 시험, 팀플)",stdout);
+    clearbuffer();
+    scanf("%[^\n]s", p->type);
+    fputs("어떤 과목입니까? ",stdout);
+    clearbuffer();
+    scanf("%[^\n]s", p->subject);
+    return 1;
+} // 일정 수정 함수 
