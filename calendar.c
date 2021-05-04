@@ -22,3 +22,22 @@ int selectMenu(){
     scanf(" %d",&menu);
     return menu;
 } // 메뉴 선택 함수 
+
+void clearbuffer(){
+    while (getchar() != '\n');
+}
+
+int createCalendar(Calendar *p){
+    fputs("년: ",stdout);
+    clearbuffer();
+    scanf("%d",&p->year);
+    fputs("월: ",stdout);
+    scanf("%d",&p->month);
+    fputs("일: ",stdout);
+    scanf("%d",&p->day);
+    fputs("어떤 종류의 일정입니까?(과제, 시험, 팀플)",stdout);
+    scanf("%[^\n]s", p->type);
+    fputs("어떤 과목입니까? ",stdout);
+    scanf("%[^\n]s", p->subject);
+    return 1;
+}
