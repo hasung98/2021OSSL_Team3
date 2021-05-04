@@ -67,17 +67,16 @@ int selectDataNo(Calendar *p, int count){
 } // data 선택 함수 
 
 int updatePlan(Calendar *p){
-    fputs("수정할 년도: ",stdout);
+    fputs("수정된 년도: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
-    fputs("수정할 월: ",stdout);
+    fputs("수정된 월: ",stdout);
     scanf("%d",&p->month);
-    fputs("수정할 일: ",stdout);
+    fputs("수정된 일: ",stdout);
     scanf("%d",&p->day);
-    fputs("어떤 종류의 일정입니까?(과제, 시험, 팀플)",stdout);
-    clearbuffer();
-    scanf("%[^\n]s", p->type);
-    fputs("어떤 과목입니까? ",stdout);
+    fputs("분류(1.시험 2.과제 3.팀플): ",stdout);
+    scanf("%d", &p->type);
+    fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
     return 1;
