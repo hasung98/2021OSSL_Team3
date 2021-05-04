@@ -25,3 +25,4 @@ void searchPlan_category(Calendar *s, int count);
 void searchPlan_month(Calendar *s, int count);
 
 void showCalendar();
+void clearbuffer();
