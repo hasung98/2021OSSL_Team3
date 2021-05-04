@@ -1,12 +1,11 @@
 CC = gcc
 CFLAGS = -W -Wall
-TARGET = calendar_main
-OBJECTS = calendar_main.c calendar.o
+TARGET = calendar
+OBJECTS = main.c manager.o
 all : $(TARGET)
 $(TARGET) : $(OBJECTS)
 	$(CC) $(CFLAGS) -o $@ $^
 $(DTARGET) : $(OBJECTS)
 	$(CC) $(CFLAGS) -DDEBUG -o $@ $^
 clean:
-	rm *.o
-	rm calendar_main
+	rm *.o $(TARGET) $(DTARGET)
