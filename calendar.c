@@ -84,9 +84,6 @@ int updatePlan(Calendar *p){
 
 int deletePlan(Calendar *s){
     s->year = -1;
-    s->month = -1;
-    s->day = -1;
-    s->type = -1;
     printf(" ==> 삭제 되었습니다! ");
     return 1;
 }
