@@ -21,6 +21,7 @@ void clearbuffer(){
 }
 
 int create_plan(Calendar *p){
+    printf("ex) 년:2021 월:5 일:1 분류:2 과목명:OSS \n");
     fputs("년: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
@@ -28,10 +29,9 @@ int create_plan(Calendar *p){
     scanf("%d",&p->month);
     fputs("일: ",stdout);
     scanf("%d",&p->day);
-    fputs("어떤 종류의 일정입니까?(과제, 시험, 팀플)",stdout);
-    clearbuffer();
-    scanf("%[^\n]s", p->type);
-    fputs("어떤 과목입니까? ",stdout);
+    fputs("분류(1.시험 2.과제 3.팀플): ",stdout);
+    scanf("%d", &p->type);
+    fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
     return 1;
@@ -86,7 +86,7 @@ int deletePlan(Calendar *s){
 }
 
 void searchPlan_category(Calendar *s, int count){
-    
+
 }
 void searchPlan_month(Calendar *s, int count){
 
