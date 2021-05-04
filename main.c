@@ -46,6 +46,21 @@ int main (){
             }
         }
         else if (menu == 5){
+            int check = -1;
+            while(check == 1 || check == 2){    
+                printf("저장된 일정을 검색합니다\n");
+                printf("분류로 검색(시험/과제/팀플): 1\n날짜로 검색: 2\n");
+                printf("원하시는 검색방법을 입력해주세요(종료: 0)");
+                scanf("%d",&check);
+                if(check == 0) continue; //0 입력시 처음으로
+                if(check!=1 || check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
+            }
+            if(check==1){
+                searchPlan_type(p,count);
+            }
+            else if(check==2){
+                searchPlan_month(p,count);
+            }
         }
         else if (menu == 6){
             showCalendar();

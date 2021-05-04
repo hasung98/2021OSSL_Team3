@@ -117,7 +117,7 @@ void searchPlan_month(Calendar *s, int count){
         printf("원하시는 번호를 입력해주세요(종료: 0): ");
         scanf("%d",&check);
         if(check == 0) return;
-        if(check!=1 || check!=2) printf("잘못 입력하셨습니다\n");
+        if(check!=1 || check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
     }
     if(check ==1){
         int scnt = 0;
