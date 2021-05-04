@@ -36,14 +36,25 @@ int createCalendar(Calendar *p){
     fputs("일: ",stdout);
     scanf("%d",&p->day);
     fputs("어떤 종류의 일정입니까?(과제, 시험, 팀플)",stdout);
+    clearbuffer();
     scanf("%[^\n]s", p->type);
     fputs("어떤 과목입니까? ",stdout);
+    clearbuffer();
     scanf("%[^\n]s", p->subject);
     return 1;
 } // 일정 추가 함수 
 
 int readCalendar(Calendar p){
-    printf("%d년 %d월 %d일, %s (%s)\n",p.year,p.month,p.day,p.type,p.subject);
+    printf(" %d년  %d월 \t %d일 \t\t %s \t (%s)\n",p.year,p.month,p.day,p.type,p.subject);
     return 1;
-}// 제품 출력 함수 
+}// 일정 read 함수 
 
+void listCalendar(Calendar *p, int count){
+    int i = 0;
+    printf("\nNo \t 년 \t 월 \t 일 \t\t 종류 \t 과목\n");
+    for(i = 0; i < count; i++){
+        if(p[i].year == -1) continue;
+        printf("%d \t",i+1);
+        readCalendar(p[i]);
+    }
+} // 전체 일정 출력 함수
