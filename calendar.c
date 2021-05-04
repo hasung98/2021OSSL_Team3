@@ -119,20 +119,30 @@ void searchPlan_month(Calendar *s, int count){
         if(check == 0) return;
         if(check!=1 || check!=2) printf("잘못 입력하셨습니다\n");
     }
-    scanf("%d",&search);
-    printf("**********************************************\n");
-    printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
-    for(int i=0; i<count; i++)
-    {
-        if(s[i].year == -1) continue;
-        if(s[i].type==search){
-            printf("%2d  ",i+1);
-            readProduct(s[i]);
-            scnt++;
+    if(check ==1){
+        int scnt = 0;
+        int search;
+        printf("월(Month)로 일정을 검색합니다\n");
+        printf("검색을 원하시는 월을 입력해주세요: ");
+        scanf("%d",&search);
+        printf("**********************************************\n");
+        printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+        for(int i=0; i<count; i++)
+        {
+            if(s[i].year == -1) continue;
+            if(s[i].month==search){
+              printf("%2d  ",i+1);
+                readProduct(s[i]);
+                scnt++;
+            }
         }
+        if(scnt==0) printf("=> 검색된 데이터 없음!");
+        printf("\n");
     }
-    if(scnt==0) printf("=> 검색된 데이터 없음!");
-    printf("\n");
+    else if(check == 2)
+    {
+
+    }
 }
 
 void showCalendar(){
