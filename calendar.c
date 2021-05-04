@@ -84,3 +84,15 @@ int deletePlan(Calendar *s){
     printf(" ==> 삭제 되었습니다! ");
     return 1;
 }
+
+void searchPlan_category(Calendar *s, int count){
+    
+}
+void searchPlan_month(Calendar *s, int count){
+
+}
+
+void showCalendar(){
+
+}
+
