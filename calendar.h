@@ -5,7 +5,7 @@ typedef struct{
   int year; //년
   int month;//월
   int day;//일
-  char type[100]; // 과제 or 시험 or 팀프로젝트
+  int type; // 과제 or 시험 or 팀프로젝트
   char subject[100]; // 과목
 } Calendar;
 
