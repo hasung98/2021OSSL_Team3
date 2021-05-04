@@ -1,6 +1,6 @@
 #include "calendar.h"
 
-int main (void){
+int main (){
     Calendar s[100];
     int count = 0; 
     int index = 0; 
@@ -11,7 +11,15 @@ int main (void){
         menu = selectMenu();
         if(menu == 0) {
             printf("프로그램이 종료됩니다!\n");
-            exit =0;
+            exit = 0; //프로그램 종료
+        }
+        if(menu ==1||menu==3||menu==4||menu ==5)
+        {
+            if(count == 0) 
+            {
+                printf("저장된 일정이 없습니다\n");
+                continue;
+            }
         }
         else if(menu == 1){
             listCalendar(s,index);

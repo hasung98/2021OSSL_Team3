@@ -8,7 +8,7 @@ int selectMenu(){
     printf("3. 일정 수정\n");
     printf("4. 일정 삭제\n");
     printf("5. 일정 검색\n");
-    printf("5. 달력 보기\n");
+    printf("6. 달력 보기\n");
     printf("0. 종료\n");
     printf("********************************\n");
     printf("==> 원하는 메뉴는 무엇입니까? ");
