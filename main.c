@@ -1,5 +1,3 @@
-#include <string.h>
-#include <stdio.h>
 #include "calendar.h"
 
 int main (void){
