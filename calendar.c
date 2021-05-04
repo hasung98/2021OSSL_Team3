@@ -38,13 +38,19 @@ int create_plan(Calendar *p){
 } // 일정 추가 함수 
 
 int readPlan(Calendar p){
-    printf(" %d년  %d월 \t %d일 \t\t %s \t (%s)\n",p.year,p.month,p.day,p.type,p.subject);
+    char p_type[100] = "\0";
+    if(p.type==1) strcpy(p_type , "시험");
+    else if(p.type==2) strcpy(p_type, "과제");
+    else if(p.type==3) strcpy(p_type, "팀플");
+    else strcpy(p_type, "분류없음");
+
+    printf(" %d년\t%d월\t%d일\t\t%s\t(%s)\n",p.year,p.month,p.day,p_type,p.subject);
     return 1;
 }// 일정 read 함수 
 
 void listPlan(Calendar *p, int count){
     int i = 0;
-    printf("\nNo \t 년 \t 월 \t 일 \t\t 종류 \t 과목\n");
+    printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
         printf("%d \t",i+1);
