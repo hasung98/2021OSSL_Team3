@@ -40,4 +40,10 @@ int createCalendar(Calendar *p){
     fputs("어떤 과목입니까? ",stdout);
     scanf("%[^\n]s", p->subject);
     return 1;
-}
+} // 일정 추가 함수 
+
+int readCalendar(Calendar p){
+    printf("%d년 %d월 %d일, %s (%s)\n",p.year,p.month,p.day,p.type,p.subject);
+    return 1;
+}// 제품 출력 함수 
+
