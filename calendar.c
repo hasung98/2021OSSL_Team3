@@ -92,7 +92,7 @@ int deletePlan(Calendar *s){
     return 1;
 }
 
-void searchPlan_type(Calendar s[], int count){
+void searchPlan_type(Calendar p[], int count){
     int scnt = 0;
     int search;
     printf("검색할 분류를 입력하세요(1.시험 2.과제 3.팀플): ");
@@ -101,19 +101,22 @@ void searchPlan_type(Calendar s[], int count){
     printf("\nNo\t년\t월\t일\t분류\t과목\n");
     for(int i=0; i<count; i++)
     {
-        if(s[i].year == -1) continue;
-        if(s[i].type==search){
+        if(p[i].year == -1) continue;
+        if(p[i].type==search){
             printf("%2d  ",i+1);
-            readPlan(s[i]);
+            readPlan(p[i]);
             scnt++;
         }
     }
-    if(scnt==0)
-    printf("=> 검색된 데이터 없음!");
+    if(scnt==0){
+        char p_type[100] = "\0";
+        strcpy(p_type,transfer(search));
+        printf("\n->%s 일정이 없습니다\n",p_type);
+    }
     printf("\n");
 }
 
-void searchPlan_month(Calendar *s, int count){
+void searchPlan_month(Calendar *p, int count){
     int check = -1;
     while(check == 1 || check == 2){
         printf("월(Month)로 검색: 1 \n월(Month) & 일(Day)로 검색: 2\n");
@@ -132,10 +135,10 @@ void searchPlan_month(Calendar *s, int count){
         printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
-            if(s[i].year == -1) continue;
-            if(s[i].month==search){
+            if(p[i].year == -1) continue;
+            if(p[i].month==search){
               printf("%2d  ",i+1);
-                readPlan(s[i]);
+                readPlan(p[i]);
                 scnt++;
             }
         }
@@ -157,10 +160,10 @@ void searchPlan_month(Calendar *s, int count){
         printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
-            if(s[i].year == -1) continue;
-            if(s[i].month == s_month && s[i].day == s_day){
+            if(p[i].year == -1) continue;
+            if(p[i].month == s_month && p[i].day == s_day){
                 printf("%2d  ",i+1);
-                readPlan(s[i]);
+                readPlan(p[i]);
                 scnt++;
             }
         }
