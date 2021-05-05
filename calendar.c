@@ -185,6 +185,19 @@ void searchPlan_month(Calendar *p, int count){
     }
 }
 
-void showCalendar(){
-    // 월을 입력받아 해당 월의 calender를 출력하는 함수입니다
-}
+void showCalendar(int ndays, int d1){
+    printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
+    for(int i = 0; i<d1; i++){
+        printf("\t"); // 첫번째 요일 전까지 탭으로 띄어주기
+    }
+    for(int i = 1; i<=ndays; i++){
+        printf(" %d\t",i); // day 출력
+        if((i+d1)%7 == 0) printf("\n"); //7로 나눠서 나머지가 0 이면 줄바꿈
+    }
+}// 년도와 월을 입력받아 해당 월의 calender를 출력하는 함수
+
+int is_leap_year(int y){
+    if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
+    else return NO;
+} // 윤년을 판별하기 위한 help function 
+
