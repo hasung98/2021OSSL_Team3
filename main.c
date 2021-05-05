@@ -66,7 +66,14 @@ int main (){
             }
         }
         else if (menu == 6){
-            showCalendar();
+            int y,m,ndays,d1;
+            printf("년도: ");
+            scanf(" %d",&y);
+            printf("월: ");
+            scanf(" %d",&m);
+            ndays = month_days(y,m);
+            d1= first_day(y,m);
+            showCalendar(ndays,d1);
         }
     }
     return 0;
