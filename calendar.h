@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define YES 1
+#define NO 0
 
 typedef struct{
-  int year; //ë…„
-  int month;//ì›”
-  int day;//ì¼
-  int type; // ê³¼ì œ or ì‹œí—˜ or íŒ€í”„ë¡œì íŠ¸
-  char subject[100]; // ê³¼ëª©
+  int year; //³â
+  int month;//¿ù
+  int day;//ÀÏ
+  int type; // °úÁ¦ or ½ÃÇè or ÆÀÇÁ·ÎÁ§Æ®
+  char subject[100]; // °ú¸ñ
 } Calendar;
 
 int selectMenu();
@@ -26,6 +28,7 @@ void searchPlan_type(Calendar p[], int count);
 void searchPlan_month(Calendar p[], int count);
 
 void showCalendar();
+int is_leap_year(int x);
 
-int loadData(Calendar *s); //íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
-void saveData(Calendar *s, int index); //íŒŒì¼ ì €ì¥í•˜ê¸°
+int loadData(Calendar *s); //ÆÄÀÏ ºÒ·¯¿À±â
+void saveData(Calendar *s, int index); //ÆÄÀÏ ÀúÀåÇÏ±â
