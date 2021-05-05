@@ -186,5 +186,6 @@ void searchPlan_month(Calendar *p, int count){
 }
 
 void showCalendar(){
+    // 월을 입력받아 해당 월의 calender를 출력하는 함수입니다
 }
 
