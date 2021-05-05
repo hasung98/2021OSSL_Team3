@@ -37,17 +37,18 @@ int createPlan(Calendar *p){
     return 1;
 } // 일정 추가 함수 
 
-char transer(int type){  
-    char p_type[100] = "\0";
+char* transer(int type){  
+    char* p_type = malloc(sizeof(char)*100);
     if(type==1) strcpy(p_type , "시험");
     else if(type==2) strcpy(p_type, "과제");
     else if(type==3) strcpy(p_type, "팀플");
     else strcpy(p_type, "분류없음");
-}//숫자로 된 type을 문자로 바꾸는 함수
+    return p_type;
+} //숫자로 된 type을 문자로 바꾸는 함수
 
 int readPlan(Calendar p){
     char p_type[100] = "\0";
-    strcpy(p_type,transfer(p.type));
+    strcpy(p_type,transer(p.type));
     printf("%d년\t%d월\t%d일\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject);
     return 1;
 }// 일정 read 함수 
@@ -110,7 +111,7 @@ void searchPlan_type(Calendar p[], int count){
     }
     if(scnt==0){
         char p_type[100] = "\0";
-        strcpy(p_type,transfer(search));
+        strcpy(p_type,transer(search));
         printf("\n->%s 일정이 없습니다\n",p_type);
     }
     printf("\n");
