@@ -6,6 +6,7 @@ int main (){
     int index = 0; 
     int menu;
     int exit =1;
+    int *p_type;
 
     while(exit){
         menu = selectMenu();
@@ -42,6 +43,7 @@ int main (){
                 if(ok == 1){
                     deletePlan(&p[no-1]);
                     count--;
+                    free(p_type);
                 }
             }
         }
