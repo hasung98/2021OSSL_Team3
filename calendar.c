@@ -188,7 +188,7 @@ void searchPlan_month(Calendar *p, int count){
 void showCalendar(int ndays, int d1){
     printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
     for(int i = 0; i<d1; i++){
-        printf("\t"); // 첫번째 요일 전까지 탭으로 띄어주기
+        printf("\t"); 
     }
     for(int i = 1; i<=ndays; i++){
         printf(" %d\t",i); // day 출력
@@ -200,4 +200,32 @@ int is_leap_year(int y){
     if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
     else return NO;
 } // 윤년을 판별하기 위한 help function 
+
+int month_days(int y, int m){
+    if(m==1||m==3||m==5||m==7||m==8||m==10||m==12) 
+        return 31;
+    else if(m==4||m==6||m==9||m==11) 
+        return 30;
+    else if(is_leap_year(y) == YES) // 윤년이면 29 return
+        return 29;
+    else
+        return 28; 
+} // 해당 월이 몇 일인지 확인하기 위한 help function 
+
+int first_day(int y, int m){
+    int total = 1;
+    int month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    for (int i = 1900; i<y; i++){
+        if(is_leap_year(i)){
+            total += 366;
+        }
+        else 
+            total += 365;
+    }
+    for(int j = 0; j<m-1; j++){
+        total = total + month[j]; 
+    }
+    if(is_leap_year(y) && m>=3) total++; 
+    return total%7;
+} // 달력의 시작 요일을 확인하는 함수 
 
