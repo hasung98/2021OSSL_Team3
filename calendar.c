@@ -42,7 +42,7 @@ char* transer(int type){
     if(type==1) strcpy(p_type , "시험");
     else if(type==2) strcpy(p_type, "과제");
     else if(type==3) strcpy(p_type, "팀플");
-    else strcpy(p_type, "분류없음");
+    else strcpy(p_type, "기타");
     return p_type;
 } //숫자로 된 type을 문자로 바꾸는 함수
 
@@ -98,13 +98,19 @@ int deletePlan(Calendar *s){
 void searchPlan_type(Calendar p[], int count){
     int scnt = 0;
     int search;
-    printf("검색할 분류를 입력하세요(1.시험 2.과제 3.팀플): ");
+    printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
+    printf("----------------------------\n");
+    printf("1. 시험\n2. 과제\n3. 팀플\n");
+    printf("----------------------------\n");
+    printf("=> ");
     scanf("%d",&search);
-    printf("=========================================\n");
+    if(search==0) return; //0입력시 처음으로
+
     printf("\nNo\t년\t월\t일\t분류\t과목\n");
+    printf("---------------------------------------------\n");
     for(int i=0; i<count; i++)
     {
-        if(p[i].year == -1) continue;
+        if(p[i].year == -1) continue; 
         if(p[i].type==search){
             printf("%2d  ",i+1);
             readPlan(p[i]);
@@ -114,7 +120,7 @@ void searchPlan_type(Calendar p[], int count){
     if(scnt==0){
         char *p_type;
         p_type = transer(search);
-        printf("\n->%s 일정이 없습니다\n",p_type);
+        printf("-> %s 일정이 없습니다\n",p_type);
         free(p_type);
     }
     printf("\n");
@@ -135,7 +141,7 @@ void searchPlan_month(Calendar *p, int count){
         printf("월(Month)로 일정을 검색합니다\n");
         printf("검색을 원하시는 월을 입력해주세요: ");
         scanf("%d",&search);
-        printf("=========================================\n");
+    printf("---------------------------------------------\n");
         printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
@@ -160,7 +166,7 @@ void searchPlan_month(Calendar *p, int count){
         scanf("%d",&s_month);
         printf("일: ");
         scanf("%d",&s_day);    
-        printf("=========================================\n");
+        printf("---------------------------------------------\n");
         printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
