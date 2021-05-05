@@ -47,9 +47,10 @@ char* transer(int type){
 } //숫자로 된 type을 문자로 바꾸는 함수
 
 int readPlan(Calendar p){
-    char p_type[100] = "\0";
-    strcpy(p_type,transer(p.type));
+    char *p_type;
+    p_type = transer(p.type);
     printf("%d년\t%d월\t%d일\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject);
+    free(p_type);
     return 1;
 }// 일정 read 함수 
 
@@ -111,9 +112,10 @@ void searchPlan_type(Calendar p[], int count){
         }
     }
     if(scnt==0){
-        char p_type[100] = "\0";
-        strcpy(p_type,transer(search));
+        char *p_type;
+        p_type = transer(search);
         printf("\n->%s 일정이 없습니다\n",p_type);
+        free(p_type);
     }
     printf("\n");
 }
