@@ -6,7 +6,6 @@ int main (){
     int index = 0; 
     int menu;
     int exit =1;
-    char *p_type;
 
     while(exit){
         menu = selectMenu();
