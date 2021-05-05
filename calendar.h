@@ -27,7 +27,7 @@ int deletePlan(Calendar *p);
 void searchPlan_type(Calendar p[], int count);
 void searchPlan_month(Calendar p[], int count);
 
-void showCalendar();
+void showCalendar(int ndays, int d1);
 int is_leap_year(int x);
 
 int loadData(Calendar *s); //파일 불러오기
