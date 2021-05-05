@@ -2,7 +2,7 @@
 
 int selectMenu(){
     int menu;
-    printf("\n========== 한동 A+ 도우미 ==========\n\n");
+    printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
     printf("2. 일정 추가\n");
     printf("3. 일정 수정\n");
@@ -21,7 +21,7 @@ void clearbuffer(){
 }
 
 int createPlan(Calendar *p){
-    printf("ex) 년:2021 월:5 일:1 분류:2 과목명:OSS \n");
+    printf("\nex) 년:2021 월:5 일:1 분류:2 과목명:OSS \n\n");
     fputs("년: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
@@ -57,6 +57,7 @@ int readPlan(Calendar p){
 void listPlan(Calendar *p, int count){
     int i = 0;
     printf("\nNo\t년\t월\t일\t분류\t과목\n");
+    printf("---------------------------------------------\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
         printf("%d\t",i+1);
@@ -67,7 +68,7 @@ void listPlan(Calendar *p, int count){
 int selectDataNo(Calendar *p, int count){
     int num;
     listPlan(p,count);
-    printf("\n-> 수정할 일정의 번호를 입력하세요(취소:0): ");
+    printf("\n-> 번호를 입력하세요(취소:0): ");
     scanf(" %d",&num);
     return num;
 } // data 선택 함수 

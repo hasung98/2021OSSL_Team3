@@ -37,7 +37,7 @@ int main (){
             int no = selectDataNo(p,index);
             if(no>0){
                 int ok;
-                printf("정말로 삭제하시겠습니까?(삭제:1)");
+                printf("\n** 정말로 삭제하시겠습니까?(삭제: 1) ");
                 scanf(" %d",&ok);
                 if(ok == 1){
                     deletePlan(&p[no-1]);
@@ -47,12 +47,15 @@ int main (){
         }
         else if (menu == 5){
             int check = -1;
-            while(check == 1 || check == 2){    
-                printf("저장된 일정을 검색합니다\n");
-                printf("분류로 검색(시험/과제/팀플): 1\n날짜로 검색: 2\n");
-                printf("원하시는 검색방법을 입력해주세요(종료: 0)");
+            while(check != 1 && check != 2){    
+                printf("\n[ 일정 검색 ]\n");
+                printf("\n검색방법을 입력해주세요(종료: 0)");
+                printf("\n----------------------------\n");
+                printf("1. 분류로 검색(시험/과제/팀플)\n2. 날짜로 검색\n");
+                printf("----------------------------\n");
+                printf("=> ");
                 scanf("%d",&check);
-                if(check == 0) continue; //0 입력시 처음으로
+                if(check == 0) break; //0 입력시 빠져나감
                 if(check!=1 || check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
             }
             if(check==1){
