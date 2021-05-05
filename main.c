@@ -41,9 +41,8 @@ int main (){
                 printf("정말로 삭제하시겠습니까?(삭제:1)");
                 scanf(" %d",&ok);
                 if(ok == 1){
-                    deletePlan(&p[no-1]);
+                    deletePlan(&p[no-1],char *p_type);
                     count--;
-                    free(p_type);
                 }
             }
         }
