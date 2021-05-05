@@ -55,8 +55,8 @@ int main (){
                 printf("----------------------------\n");
                 printf("=> ");
                 scanf("%d",&check);
-                if(check == 0) break; //0 입력시 빠져나감
-                if(check!=1 || check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
+                if(check == 0) break; //0 입력시 처음으로
+                if(check!=1 && check!=2) printf("\n잘못 입력하셨습니다. 다시 입력해주세요\n");
             }
             if(check==1){
                 searchPlan_type(p,count);
