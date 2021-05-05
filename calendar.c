@@ -2,7 +2,7 @@
 
 int selectMenu(){
     int menu;
-    printf("\n******* 한동 A+ 도우미 *******\n\n");
+    printf("\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
     printf("2. 일정 추가\n");
     printf("3. 일정 수정\n");
@@ -10,8 +10,8 @@ int selectMenu(){
     printf("5. 일정 검색\n");
     printf("6. 달력 보기\n");
     printf("0. 종료\n");
-    printf("\n********************************\n");
-    printf("==> 원하는 메뉴는 무엇입니까? ");
+    printf("\n====================================\n\n");
+    printf("-> 원하시는 메뉴를 입력하세요: ");
     scanf(" %d",&menu);
     return menu;
 } // 메뉴 선택 함수 
@@ -44,16 +44,16 @@ int readPlan(Calendar p){
     else if(p.type==3) strcpy(p_type, "팀플");
     else strcpy(p_type, "분류없음");
 
-    printf(" %d년\t%d월\t%d일\t\t%s\t(%s)\n",p.year,p.month,p.day,p_type,p.subject);
+    printf("%d년\t%d월\t%d일\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject);
     return 1;
 }// 일정 read 함수 
 
 void listPlan(Calendar *p, int count){
     int i = 0;
-    printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+    printf("\nNo\t년\t월\t일\t분류\t과목\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
-        printf("%d \t",i+1);
+        printf("%d\t",i+1);
         readPlan(p[i]);
     }
 } // 전체 일정 출력 함수
@@ -61,7 +61,7 @@ void listPlan(Calendar *p, int count){
 int selectDataNo(Calendar *p, int count){
     int num;
     listPlan(p,count);
-    printf("선택할 번호는 무엇입니까?(취소:0) ");
+    printf("\n-> 수정할 일정의 번호를 입력하세요(취소:0): ");
     scanf(" %d",&num);
     return num;
 } // data 선택 함수 
@@ -84,7 +84,7 @@ int updatePlan(Calendar *p){
 
 int deletePlan(Calendar *s){
     s->year = -1;
-    printf(" ==> 삭제 되었습니다! ");
+    printf("\n-> 삭제 되었습니다\n");
     return 1;
 }
 
@@ -93,8 +93,8 @@ void searchPlan_type(Calendar s[], int count){
     int search;
     printf("검색할 분류를 입력하세요(1.시험 2.과제 3.팀플): ");
     scanf("%d",&search);
-    printf("**********************************************\n");
-    printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+    printf("=========================================\n");
+    printf("\nNo\t년\t월\t일\t분류\t과목\n");
     for(int i=0; i<count; i++)
     {
         if(s[i].year == -1) continue;
@@ -123,8 +123,8 @@ void searchPlan_month(Calendar *s, int count){
         printf("월(Month)로 일정을 검색합니다\n");
         printf("검색을 원하시는 월을 입력해주세요: ");
         scanf("%d",&search);
-        printf("**********************************************\n");
-        printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+        printf("=========================================\n");
+        printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
             if(s[i].year == -1) continue;
@@ -134,7 +134,7 @@ void searchPlan_month(Calendar *s, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("=> 해당 월에는 일정이 없습니다");
+        if(scnt==0) printf("\n-> 해당 월에는 일정이 없습니다\n");
         printf("\n");
     }
     else if(check == 2)
@@ -147,9 +147,9 @@ void searchPlan_month(Calendar *s, int count){
         printf("월: ");
         scanf("%d",&s_month);
         printf("일: ");
-        scanf("%d",&s_day);
-        printf("**********************************************\n");
-        printf("\nNo\t\t년\t월\t일\t\t분류\t과목\n");
+        scanf("%d",&s_day);    
+        printf("=========================================\n");
+        printf("\nNo\t년\t월\t일\t분류\t과목\n");
         for(int i=0; i<count; i++)
         {
             if(s[i].year == -1) continue;
@@ -159,7 +159,7 @@ void searchPlan_month(Calendar *s, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("=> 해당 날짜에는 일정이 없습니다");
+        if(scnt==0) printf("\n-> 해당 날짜에는 일정이 없습니다\n");
         printf("\n");
     }
 }
