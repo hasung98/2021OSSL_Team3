@@ -88,9 +88,8 @@ int updatePlan(Calendar *p){
     return 1;
 } // 일정 수정 함수 
 
-int deletePlan(Calendar *s, char *p_type){
+int deletePlan(Calendar *s){
     s->year = -1;
-    free(p_type);
     printf("\n-> 삭제 되었습니다\n");
     return 1;
 }
