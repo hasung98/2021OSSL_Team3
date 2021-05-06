@@ -6,11 +6,11 @@
 #define NO 0
 
 typedef struct{
-  int year; //³â
-  int month;//¿ù
-  int day;//ÀÏ
-  int type; // °úÁ¦ or ½ÃÇè or ÆÀÇÁ·ÎÁ§Æ®
-  char subject[100]; // °ú¸ñ
+  int year; //ë…„
+  int month;//ì›”
+  int day;//ì¼
+  int type; // ê³¼ì œ or ì‹œí—˜ or íŒ€í”„ë¡œì íŠ¸
+  char subject[100]; // ê³¼ëª©
 } Calendar;
 
 int selectMenu();
@@ -32,5 +32,5 @@ int is_leap_year(int x);
 int month_days(int y, int m);
 int first_day(int y, int m);
 
-int loadData(Calendar *s); //ÆÄÀÏ ºÒ·¯¿À±â
-void saveData(Calendar *s, int index); //ÆÄÀÏ ÀúÀåÇÏ±â
+int loadData(Calendar *s); //íŒŒì¼ ë¶ˆëŸ¬ì˜¤ê¸°
+void saveData(Calendar *s, int index); //íŒŒì¼ ì €ì¥í•˜ê¸°
