@@ -196,6 +196,7 @@ void showCalendar(int ndays, int d1){
     }
 }// 년도와 월을 입력받아 해당 월의 calender를 출력하는 함수
 
+
 int is_leap_year(int y){
     if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
     else return NO;
