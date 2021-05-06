@@ -5,6 +5,7 @@
 #define YES 1
 #define NO 0
 
+
 typedef struct{
   int year; //년
   int month;//월
