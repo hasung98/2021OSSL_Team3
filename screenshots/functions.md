@@ -47,6 +47,7 @@
 # 부가기능
 - 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다. 범위 이외의 값이 입력되면, 값을 다시 입력받습니다.
 ![image](https://user-images.githubusercontent.com/70621926/117544444-7157ee80-b05c-11eb-9e23-fa7ce8079d88.png)
+<br />
 ![image](https://user-images.githubusercontent.com/70621926/117544852-453d6d00-b05e-11eb-9f1b-6227285dfe74.png)
 
 - 
