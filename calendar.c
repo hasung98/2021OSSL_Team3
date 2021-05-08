@@ -21,7 +21,7 @@ void clearbuffer(){
 }
 
 int createPlan(Calendar *p){
-    printf("\nex) 년:2021 월:5 일:1 분류:2 과목명:OSS \n\n");
+    printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
     fputs("년: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
@@ -148,16 +148,14 @@ void searchPlan_type(Calendar p[], int count){
     printf("----------------------------\n");
     printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n");
     printf("----------------------------\n");
-    while(search!=0&&search!=1&&search!=2&&search!=3&&search!=4){   
+    while(search<0||search>4){   
         printf("=> ");
         scanf("%d",&search);
-        if(search!=0&&search!=1&&search!=2&&search!=3&&search!=4) printf("잘못 입력하였습니다.\n");
+        if((search<0||search>4)) printf("잘못 입력하였습니다.\n");
     }
-    printf("=> ");
-    scanf("%d",&search);
     if(search==0) return; //0입력시 처음으로
     char *p_type = transer(search);
-    printf("[ %s ] 일정을 검색합니다.\n",p_type);
+    printf("\n> %s 일정을 검색합니다\n",p_type);
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
     for(int i=0; i<count; i++)
@@ -197,7 +195,7 @@ void searchPlan_month(Calendar *p, int count){
             scanf("%d",&s_month);
             if(s_month<=0||s_month>12) printf("잘못 입력하였습니다\n");
         }
-        printf("[ %d월 ] 일정을 검색합니다.\n",s_month);
+        printf("\n> %d월 일정을 검색합니다\n",s_month);
     
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
@@ -228,7 +226,7 @@ void searchPlan_month(Calendar *p, int count){
             if(s_month<=0||s_month>12||s_day<=0||s_day>31) printf("잘못 입력하였습니다.\n");  
         }
         
-        printf("[ %d월 %d일 ] 일정을 검색합니다.\n",s_month,s_day);
+        printf("\n> %d월 %d일 일정을 검색합니다.\n",s_month,s_day);
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
