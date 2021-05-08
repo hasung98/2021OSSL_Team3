@@ -61,11 +61,11 @@
 -----------------------------------------
 # 부가기능
 - 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다. 범위 이외의 값이 입력되면, 값을 다시 입력받습니다.   
-![image](https://user-images.githubusercontent.com/70621926/117544444-7157ee80-b05c-11eb-9e23-fa7ce8079d88.png)
+![image](https://user-images.githubusercontent.com/70621926/117544444-7157ee80-b05c-11eb-9e23-fa7ce8079d88.png)   
 ![image](https://user-images.githubusercontent.com/70621926/117544852-453d6d00-b05e-11eb-9f1b-6227285dfe74.png)
 
 <br />
 
 - 메뉴를 선택하고 실행하는 중에 0을 입력하면 종료할 수 있는 기능도 내제되어 있습니다.
-![image](https://user-images.githubusercontent.com/70621926/117545721-f0035a80-b061-11eb-8a8c-9099f554f9bd.png)
+![image](https://user-images.githubusercontent.com/70621926/117545721-f0035a80-b061-11eb-8a8c-9099f554f9bd.png)   
 ![image](https://user-images.githubusercontent.com/70621926/117545819-643dfe00-b062-11eb-8864-5cf6a34f9050.png)
