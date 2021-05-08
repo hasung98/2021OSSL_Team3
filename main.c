@@ -71,7 +71,7 @@ int main (){
                 printf("년도: ");
                 scanf(" %d",&y);
                 if(y<2000) {
-                    printf("다시 입력하세요\n");
+                    printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
                     continue;
                 }
                 else break;
@@ -81,7 +81,7 @@ int main (){
                 printf("월: ");
                 scanf(" %d",&m);
                 if(m>12 || m<1) {
-                    printf("다시 입력하세요\n");
+                    printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
                     continue;
                 }
                 else break;
