@@ -29,8 +29,11 @@ int createPlan(Calendar *p){
     scanf("%d",&p->month);
     fputs("일: ",stdout);
     scanf("%d",&p->day);
-    fputs("분류(1.시험 2.과제 3.팀플): ",stdout);
-    scanf("%d", &p->type);
+   while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
+        fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
+        scanf("%d", &p->type);
+        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
+    }
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
@@ -81,8 +84,12 @@ int updatePlan(Calendar *p){
     scanf("%d",&p->month);
     fputs("수정된 일: ",stdout);
     scanf("%d",&p->day);
-    fputs("분류(1.시험 2.과제 3.팀플): ",stdout);
-    scanf("%d", &p->type);
+    p->type=0;
+    while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
+        fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
+        scanf("%d", &p->type);
+        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
+    }
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
@@ -100,7 +107,7 @@ void searchPlan_type(Calendar p[], int count){
     int search;
     printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
     printf("----------------------------\n");
-    printf("1. 시험\n2. 과제\n3. 팀플\n");
+    printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n");
     printf("----------------------------\n");
     printf("=> ");
     scanf("%d",&search);
