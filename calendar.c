@@ -40,6 +40,11 @@ int createPlan(Calendar *p){
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
     }
+    if(p->type==4){
+        fputs("일정을 입력하세요: ",stdout);
+        clearbuffer();
+        scanf("%[^\n]s", p->text);
+    }
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
