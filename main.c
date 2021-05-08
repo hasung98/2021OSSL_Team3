@@ -10,14 +10,14 @@ int main (){
     while(exit){
         menu = selectMenu();
         if(menu == 0) {
-            printf("ÇÁ·Î±×·¥ÀÌ Á¾·áµË´Ï´Ù!\n");
-            exit = 0; //ÇÁ·Î±×·¥ Á¾·á
+            printf("í”„ë¡œê·¸ë¨ì´ ì¢…ë£Œë©ë‹ˆë‹¤!\n");
+            exit = 0; //í”„ë¡œê·¸ë¨ ì¢…ë£Œ
         }
         if(menu ==1||menu==3||menu==4||menu ==5)
         {
             if(count == 0) 
             {
-                printf("ÀúÀåµÈ ÀÏÁ¤ÀÌ ¾ø½À´Ï´Ù\n");
+                printf("ì €ì¥ëœ ì¼ì •ì´ ì—†ìŠµë‹ˆë‹¤\n");
                 continue;
             }
         }
@@ -37,7 +37,7 @@ int main (){
             int no = selectDataNo(p,index);
             if(no>0){
                 int ok;
-                printf("\n** Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î?(»èÁ¦: 1) ");
+                printf("\n** ì •ë§ë¡œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ì‚­ì œ: 1) ");
                 scanf(" %d",&ok);
                 if(ok == 1){
                     deletePlan(&p[no-1]);
@@ -48,15 +48,15 @@ int main (){
         else if (menu == 5){
             int check = -1;
             while(check != 1 && check != 2){    
-                printf("\n[ ÀÏÁ¤ °Ë»ö ]\n");
-                printf("\n°Ë»ö¹æ¹ıÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä(Á¾·á: 0)");
+                printf("\n[ ì¼ì • ê²€ìƒ‰ ]\n");
+                printf("\nê²€ìƒ‰ë°©ë²•ì„ ì…ë ¥í•´ì£¼ì„¸ìš”(ì¢…ë£Œ: 0)");
                 printf("\n----------------------------\n");
-                printf("1. ºĞ·ù·Î °Ë»ö(½ÃÇè/°úÁ¦/ÆÀÇÃ/±âÅ¸)\n2. ³¯Â¥·Î °Ë»ö\n");
+                printf("1. ë¶„ë¥˜ë¡œ ê²€ìƒ‰(ì‹œí—˜/ê³¼ì œ/íŒ€í”Œ/ê¸°íƒ€)\n2. ë‚ ì§œë¡œ ê²€ìƒ‰\n");
                 printf("----------------------------\n");
                 printf("=> ");
                 scanf("%d",&check);
-                if(check == 0) break; //0 ÀÔ·Â½Ã Ã³À½À¸·Î
-                if(check!=1 && check!=2) printf("\nÀß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä\n");
+                if(check == 0) break; //0 ì…ë ¥ì‹œ ì²˜ìŒìœ¼ë¡œ
+                if(check!=1 && check!=2) printf("\nì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”\n");
             }
             if(check==1){
                 searchPlan_type(p,count);
@@ -67,10 +67,25 @@ int main (){
         }
         else if (menu == 6){
             int y,m,ndays,d1;
-            printf("³âµµ: ");
-            scanf(" %d",&y);
-            printf("¿ù: ");
-            scanf(" %d",&m);
+            while(YES){
+                printf("ë…„ë„: ");
+                scanf(" %d",&y);
+                if(y<2000) {
+                    printf("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”\n");
+                    continue;
+                }
+                else break;
+            }
+            
+            while(YES){
+                printf("ì›”: ");
+                scanf(" %d",&m);
+                if(m>12 || m<1) {
+                    printf("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”\n");
+                    continue;
+                }
+                else break;
+            }
             ndays = month_days(y,m);
             d1= first_day(y,m);
             showCalendar(ndays,d1);
