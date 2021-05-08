@@ -28,12 +28,12 @@ int createPlan(Calendar *p){
     while(p->month>12||p->month<=0){
         fputs("월: ",stdout);
         scanf("%d",&p->month);
-        if(p->month>12||p->month<=0) printf("잘못 입력하셨습니다.\n");
+        if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
     }
     while(p->day>31||p->day<=0){
         fputs("일: ",stdout);
         scanf("%d",&p->day);
-        if(p->day>31||p->day<=0) printf("잘못 입력하셨습니다.\n");
+        if(p->day>31||p->day<=0) printf("잘못 입력하였습니다.\n");
     }
     fputs("과목명: ",stdout);
     clearbuffer();
@@ -41,14 +41,14 @@ int createPlan(Calendar *p){
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
-        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
+        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하였습니다.\n");
     }
     int check;
-    while(check!=0&&check!=1)
+    while(check!=1&&check!=2)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
         scanf("%d", &check);
-        if(check!=0&&check!=1) printf("잘못 입력하셨습니다.\n");
+        if(check!=1&&check!=2) printf("잘못 입력하였습니다.\n");
     }
     if(check ==1){
         fputs("비고: ",stdout);
@@ -72,11 +72,7 @@ char* transer(int type){
 int readPlan(Calendar p){
     char *p_type;
     p_type = transer(p.type);
-    printf("%d년\t%d월\t%d일\t%s\t%s\t",p.year,p.month,p.day,p_type,p.subject);
-    if(!strcmp(p.text,"-")){
-        printf("%s\n",p.text);
-    }
-    else printf("\n");
+    printf("%d년\t%d월\t%d일\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
     free(p_type);
     return 1;
 }// 일정 read 함수 
@@ -107,12 +103,12 @@ int updatePlan(Calendar *p){
     while(p->month>12||p->month<0){
         fputs("수정된 월: ",stdout);
         scanf("%d",&p->month);
-        if(p->month>12||p->month<0) printf("잘못 입력하셨습니다.\n");
+        if(p->month>12||p->month<0) printf("잘못 입력하였습니다.\n");
     }
     while(p->day>31||p->day<0){
         fputs("수정된 일: ",stdout);
         scanf("%d",&p->day);
-        if(p->day>31||p->day<0) printf("잘못 입력하셨습니다.\n");
+        if(p->day>31||p->day<0) printf("잘못 입력하였습니다.\n");
     }
     fputs("과목명: ",stdout);
     clearbuffer();
