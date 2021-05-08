@@ -42,7 +42,7 @@ char* transer(int type){
     if(type==1) strcpy(p_type , "시험");
     else if(type==2) strcpy(p_type, "과제");
     else if(type==3) strcpy(p_type, "팀플");
-    else strcpy(p_type, "기타");
+    else if(type==4) strcpy(p_type, "기타");
     return p_type;
 } //숫자로 된 type을 문자로 바꾸는 함수
 

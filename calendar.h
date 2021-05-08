@@ -12,6 +12,7 @@ typedef struct{
   int day;//일
   int type; // 과제 or 시험 or 팀프로젝트
   char subject[100]; // 과목
+  char text[100];
 } Calendar;
 
 int selectMenu();
