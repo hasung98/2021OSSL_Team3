@@ -43,7 +43,7 @@ int createPlan(Calendar *p){
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하였습니다.\n");
     }
-    int check;
+    int check=-1;
     while(check!=1&&check!=2)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
@@ -119,7 +119,7 @@ int updatePlan(Calendar *p){
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
     }
-    int check;
+    int check=-1;
     while(check!=1&&check!=2)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
