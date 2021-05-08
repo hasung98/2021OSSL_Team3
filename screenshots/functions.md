@@ -1,3 +1,4 @@
+
 - [make]를 입력하여 필요한 object file들과 실행파일을 만듭니다.
 > ![image](https://user-images.githubusercontent.com/70621926/117542431-94ca6b80-b053-11eb-98c8-7b630237867e.png)
 
@@ -25,6 +26,19 @@
 - [1. 월로 검색] 입력시 원하는 월의 일정을 모두 보여줍니다.
 > ![image](https://user-images.githubusercontent.com/70621926/117544251-8e3ff200-b05b-11eb-8e79-245dc0e1fb5c.png)
 
-- [2. 월&일로 검색] 입력시 원하는 특정 날짜의 일정을 보여줍니다. 일정이 없을시에는 일정이 없다는 안내가 보여집니다.
+- [2. 월&일로 검색] 입력시 원하는 특정 날짜의 일정을 보여줍니다. 일정이 없을시에는 일정이 없다는 안내문구가 나타납니다.
 > ![image](https://user-images.githubusercontent.com/70621926/117544286-b6c7ec00-b05b-11eb-9e49-c38c0f81ae21.png)
 > ![image](https://user-images.githubusercontent.com/70621926/117544316-d95a0500-b05b-11eb-81ff-9484d713dfdb.png)
+
+- [6. 달력 보기] 메뉴를 선택하면 원하는 년도와 월을 입력받아 해당 년도/월의 달력을 보여줍니다.
+> ![image](https://user-images.githubusercontent.com/70621926/117544368-1e7e3700-b05c-11eb-994e-7c556d80ee23.png)
+
+- [0. 종료] 메뉴를 선택하면 프로그램이 종료됩니다.
+> ![image](https://user-images.githubusercontent.com/70621926/117544819-17f0bf00-b05e-11eb-94e9-ab6ec6c58223.png)
+
+>> 부가기능
+- 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다. 범위 이외의 값이 입력되면, 값을 다시 입력받습니다.
+> ![image](https://user-images.githubusercontent.com/70621926/117544444-7157ee80-b05c-11eb-9e23-fa7ce8079d88.png)
+> ![image](https://user-images.githubusercontent.com/70621926/117544852-453d6d00-b05e-11eb-9f1b-6227285dfe74.png)
+
+- 
