@@ -206,15 +206,18 @@ void searchPlan_month(Calendar *p, int count){
     }
     else if(check == 2)
     {
-        int scnt = 0;
-        int s_month;
-        int s_day;
         printf("\n[ 월(Month)과 일(Day)로 일정검색 ]\n");
-        printf("검색을 원하시는 월과 일을 순서대로 입력해주세요\n");
-        printf("월: ");
-        scanf("%d",&s_month);
-        printf("일: ");
-        scanf("%d",&s_day);    
+        int scnt = 0;
+        int s_month=0;
+        int s_day=0;
+        while(s_month<=0||s_month>12||s_day<=0||s_day>31){ 
+            printf("검색을 원하시는 월과 일을 순서대로 입력해주세요\n");
+            printf("월: ");
+            scanf("%d",&s_month);
+            printf("일: ");
+            scanf("%d",&s_day); 
+            if(s_month<=0||s_month>12||s_day<=0||s_day>31) printf("잘못 입력하였습니다.\n");  
+        }
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
