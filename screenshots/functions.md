@@ -47,7 +47,6 @@
 
 - [2. 월&일로 검색] 입력시 원하는 특정 날짜의 일정을 보여줍니다. 일정이 없을시에는 일정이 없다는 안내문구가 나타납니다.   
 ![image](https://user-images.githubusercontent.com/70621926/117544286-b6c7ec00-b05b-11eb-9e49-c38c0f81ae21.png)   
-<br />
 ![image](https://user-images.githubusercontent.com/70621926/117544316-d95a0500-b05b-11eb-81ff-9484d713dfdb.png)   
 
 <br />
