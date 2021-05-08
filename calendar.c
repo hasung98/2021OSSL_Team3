@@ -143,15 +143,15 @@ int deletePlan(Calendar *s){
 
 void searchPlan_type(Calendar p[], int count){
     int scnt = 0;
-    int search;
+    int search=-1;
     printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
     printf("----------------------------\n");
     printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n");
     printf("----------------------------\n");
-    while(search!=1&&search!=2&&search!=3&&search!=4){   
+    while(search!=0&&search!=1&&search!=2&&search!=3&&search!=4){   
         printf("=> ");
         scanf("%d",&search);
-        if(search!=1&&search!=2&&search!=3&&search!=4) printf("잘못 입력하였습니다.\n");
+        if(search!=0&&search!=1&&search!=2&&search!=3&&search!=4) printf("잘못 입력하였습니다.\n");
     }
     printf("=> ");
     scanf("%d",&search);
