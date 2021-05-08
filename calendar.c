@@ -64,7 +64,11 @@ char* transer(int type){
 int readPlan(Calendar p){
     char *p_type;
     p_type = transer(p.type);
-    printf("%d년\t%d월\t%d일\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject);
+    printf("%d년\t%d월\t%d일\t%s\t%s\t",p.year,p.month,p.day,p_type,p.subject);
+    if(!strcmp(p.text,"-")){
+        printf("%s\n",p.text);
+    }
+    else printf("\n");
     free(p_type);
     return 1;
 }// 일정 read 함수 
