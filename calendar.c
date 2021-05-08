@@ -44,8 +44,12 @@ int createPlan(Calendar *p){
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
     }
     int check;
-    printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
-    scanf("%d", &check);
+    while(check!=0&&check!=1)
+    {
+        printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
+        scanf("%d", &check);
+        if(check!=0&&check!=1) printf("잘못 입력하셨습니다.\n");
+    }
     if(check ==1){
         fputs("비고: ",stdout);
         clearbuffer();
