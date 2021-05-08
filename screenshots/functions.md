@@ -5,6 +5,6 @@
 > ![image](https://user-images.githubusercontent.com/70621926/117543146-8a5da100-b056-11eb-815a-4b0e794ebf55.png)
 
 - [1. 전체 일정 조회] 메뉴를 선택하여 입력된 일정들을 확인할 수 있습니다.
-> ![image](https://user-images.githubusercontent.com/70621926/117543375-84b48b00-b057-11eb-9791-89eed0a6af22.png)
+> ![image](https://user-images.githubusercontent.com/70621926/117543748-140e6e00-b059-11eb-9887-8249db8bb7db.png)
 
 - [
