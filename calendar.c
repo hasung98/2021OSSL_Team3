@@ -35,6 +35,9 @@ int createPlan(Calendar *p){
         scanf("%d",&p->day);
         if(p->day>31||p->day<=0) printf("잘못 입력하셨습니다.\n");
     }
+    fputs("과목명: ",stdout);
+    clearbuffer();
+    scanf("%[^\n]s", p->subject);
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
@@ -49,9 +52,7 @@ int createPlan(Calendar *p){
         scanf("%[^\n]s", p->text);
     }
     else strcpy(p->text,"-");
-    fputs("과목명: ",stdout);
-    clearbuffer();
-    scanf("%[^\n]s", p->subject);
+
     return 1;
 } // 일정 추가 함수 
 
@@ -78,7 +79,7 @@ int readPlan(Calendar p){
 
 void listPlan(Calendar *p, int count){
     int i = 0;
-    printf("\nNo\t년\t월\t일\t분류\t과목\n");
+    printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("---------------------------------------------\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
@@ -109,15 +110,24 @@ int updatePlan(Calendar *p){
         scanf("%d",&p->day);
         if(p->day>31||p->day<0) printf("잘못 입력하셨습니다.\n");
     }
+    fputs("과목명: ",stdout);
+    clearbuffer();
+    scanf("%[^\n]s", p->subject);
     p->type=0;
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
     }
-    fputs("과목명: ",stdout);
-    clearbuffer();
-    scanf("%[^\n]s", p->subject);
+    int check;
+    printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
+    scanf("%d", &check);
+    if(check ==1){
+        fputs("비고: ",stdout);
+        clearbuffer();
+        scanf("%[^\n]s", p->text);
+    }
+    else strcpy(p->text,"-");
     return 1;
 } // 일정 수정 함수 
 
