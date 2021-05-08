@@ -185,17 +185,20 @@ void searchPlan_month(Calendar *p, int count){
         if(check!=1 && check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
     }
     if(check ==1){
-        int scnt = 0;
-        int search;
         printf("\n[ 월(Month)로 일정검색 ]\n");
-        printf("검색을 원하시는 월을 입력해주세요: ");
-        scanf("%d",&search);
+        int scnt = 0;
+        int s_month = 0;
+        while(s_month<=0||s_month>12){
+            printf("검색을 원하시는 월을 입력해주세요: ");
+            scanf("%d",&s_month);
+            if(s_month<=0||s_month>12) printf("잘못 입력하였습니다\n");
+        }
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
             if(p[i].year == -1) continue;
-            if(p[i].month==search){
+            if(p[i].month==s_month){
                 printf("%d\t",i+1);
                 readPlan(p[i]);
                 scnt++;
