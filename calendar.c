@@ -28,11 +28,13 @@ int createPlan(Calendar *p){
     while(p->month>12||p->month<0){
         fputs("월: ",stdout);
         scanf("%d",&p->month);
-        fputs("일: ",stdout);
-        scanf("%d",&p->day);
         if(p->month>12||p->month<0) printf("잘못 입력하셨습니다.\n");
     }
-    
+    while(p->day>31||p->day<0){
+        fputs("수정된 일: ",stdout);
+        scanf("%d",&p->day);
+        if(p->day>12||p->day<0) printf("잘못 입력하셨습니다.\n");
+    }
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
@@ -89,8 +91,11 @@ int updatePlan(Calendar *p){
         scanf("%d",&p->month);
         if(p->month>12||p->month<0) printf("잘못 입력하셨습니다.\n");
     }
-    fputs("수정된 일: ",stdout);
-    scanf("%d",&p->day);
+    while(p->day>31||p->day<0){
+        fputs("수정된 일: ",stdout);
+        scanf("%d",&p->day);
+        if(p->day>12||p->day<0) printf("잘못 입력하셨습니다.\n");
+    }
     p->type=0;
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
