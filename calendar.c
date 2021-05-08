@@ -84,7 +84,7 @@ int readPlan(Calendar p){
 void listPlan(Calendar *p, int count){
     int i = 0;
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
-    printf("---------------------------------------------\n");
+    printf("-------------------------------------------------------\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
         printf("%d\t",i+1);
@@ -124,8 +124,12 @@ int updatePlan(Calendar *p){
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
     }
     int check;
-    printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
-    scanf("%d", &check);
+    while(check!=1&&check!=2)
+    {
+        printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
+        scanf("%d", &check);
+        if(check!=1&&check!=2) printf("잘못 입력하셨습니다.\n");
+    }
     if(check ==1){
         fputs("비고: ",stdout);
         clearbuffer();
@@ -152,8 +156,8 @@ void searchPlan_type(Calendar p[], int count){
     scanf("%d",&search);
     if(search==0) return; //0입력시 처음으로
 
-    printf("\nNo\t년\t월\t일\t분류\t과목\n");
-    printf("---------------------------------------------\n");
+    printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
+    printf("-------------------------------------------------------\n");
     for(int i=0; i<count; i++)
     {
         if(p[i].year == -1) continue; 
@@ -190,8 +194,8 @@ void searchPlan_month(Calendar *p, int count){
         printf("\n[ 월(Month)로 일정검색 ]\n");
         printf("검색을 원하시는 월을 입력해주세요: ");
         scanf("%d",&search);
-        printf("\nNo\t년\t월\t일\t분류\t과목\n");
-        printf("---------------------------------------------\n");
+        printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
+        printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
             if(p[i].year == -1) continue;
@@ -215,8 +219,8 @@ void searchPlan_month(Calendar *p, int count){
         scanf("%d",&s_month);
         printf("일: ");
         scanf("%d",&s_day);    
-        printf("\nNo\t년\t월\t일\t분류\t과목\n");
-        printf("---------------------------------------------\n");
+        printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
+        printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
             if(p[i].year == -1) continue;
