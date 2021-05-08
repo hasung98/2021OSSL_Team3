@@ -197,7 +197,8 @@ void searchPlan_month(Calendar *p, int count){
             scanf("%d",&s_month);
             if(s_month<=0||s_month>12) printf("잘못 입력하였습니다\n");
         }
-        
+        printf("[ %d월 ] 일정을 검색합니다.\n",s_month);
+    
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
@@ -226,6 +227,8 @@ void searchPlan_month(Calendar *p, int count){
             scanf("%d",&s_day); 
             if(s_month<=0||s_month>12||s_day<=0||s_day>31) printf("잘못 입력하였습니다.\n");  
         }
+        
+        printf("[ %d월 %d일 ] 일정을 검색합니다.\n",s_month,s_day);
         printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
