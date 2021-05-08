@@ -156,7 +156,9 @@ void searchPlan_type(Calendar p[], int count){
     printf("=> ");
     scanf("%d",&search);
     if(search==0) return; //0입력시 처음으로
-
+    char *p_type = transer(search);
+    printf("[ %s ] 일정을 검색합니다.\n",p_type);
+    free(p_type);
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
     for(int i=0; i<count; i++)
