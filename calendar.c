@@ -25,11 +25,13 @@ int createPlan(Calendar *p){
     fputs("년: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
+    p->month= -1;
     while(p->month>12||p->month<=0){
         fputs("월: ",stdout);
         scanf("%d",&p->month);
         if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
     }
+    p->day = -1;
     while(p->day>31||p->day<=0){
         fputs("일: ",stdout);
         scanf("%d",&p->day);
@@ -38,6 +40,7 @@ int createPlan(Calendar *p){
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
+    p->type = -1;
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
@@ -100,20 +103,22 @@ int updatePlan(Calendar *p){
     fputs("수정된 년도: ",stdout);
     clearbuffer();
     scanf("%d",&p->year);
-    while(p->month>12||p->month<0){
+    p->month = -1;
+    while(p->month>12||p->month<=0){
         fputs("수정된 월: ",stdout);
         scanf("%d",&p->month);
-        if(p->month>12||p->month<0) printf("잘못 입력하였습니다.\n");
+        if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
     }
-    while(p->day>31||p->day<0){
+    p->day = -1;
+    while(p->day>31||p->day<=0){
         fputs("수정된 일: ",stdout);
         scanf("%d",&p->day);
-        if(p->day>31||p->day<0) printf("잘못 입력하였습니다.\n");
+        if(p->day>31||p->day<=0) printf("잘못 입력하였습니다.\n");
     }
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
-    p->type=0;
+    p->type=-1;
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
@@ -215,8 +220,8 @@ void searchPlan_month(Calendar *p, int count){
     {
         printf("\n[ 월(Month)과 일(Day)로 일정검색 ]\n");
         int scnt = 0;
-        int s_month=0;
-        int s_day=0;
+        int s_month=-1;
+        int s_day=-1;
         while(s_month<=0||s_month>12||s_day<=0||s_day>31){ 
             printf("\n검색을 원하시는 월과 일을 순서대로 입력해주세요\n");
             printf("월: ");
