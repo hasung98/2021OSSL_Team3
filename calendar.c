@@ -45,6 +45,7 @@ int createPlan(Calendar *p){
         clearbuffer();
         scanf("%[^\n]s", p->text);
     }
+    else strcpy(p->text,"-");
     fputs("°ú¸ñ¸í: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
