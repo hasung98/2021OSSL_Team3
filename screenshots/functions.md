@@ -67,5 +67,5 @@
 <br />
 
 - 메뉴를 선택하고 실행하는 중에 0을 입력하면 종료할 수 있는 기능도 내제되어 있습니다.
-![image](https://user-images.githubusercontent.com/70621926/117545721-f0035a80-b061-11eb-8a8c-9099f554f9bd.png)   
+![image](https://user-images.githubusercontent.com/70621926/117545924-d44c8400-b062-11eb-93e8-e21e3258839a.png)   
 ![image](https://user-images.githubusercontent.com/70621926/117545819-643dfe00-b062-11eb-8864-5cf6a34f9050.png)
