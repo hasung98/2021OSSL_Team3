@@ -94,7 +94,7 @@ void listPlan(Calendar *p, int count){
 int selectDataNo(Calendar *p, int count){
     int num;
     listPlan(p,count);
-    printf("\n-> 번호를 입력하세요(취소:0): ");
+    printf("\n-> 번호를 입력하세요(종료: 0): ");
     scanf(" %d",&num);
     return num;
 } // data 선택 함수 

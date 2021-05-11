@@ -10,7 +10,7 @@ int main (){
     while(exit){
         menu = selectMenu();
         if(menu == 0) {
-            printf("프로그램이 종료됩니다!\n");
+            printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
             exit = 0; //프로그램 종료
         }
         if(menu ==1||menu==3||menu==4||menu ==5)
