@@ -292,3 +292,13 @@ int first_day(int y, int m){
     if(is_leap_year(y) && m>=3) total++; 
     return total%7;
 } // 달력의 시작 요일을 확인하는 함수 
+
+
+int loadData(Calendar *s)
+{
+
+}
+void saveData(Calendar *s, int index)
+{
+
+}
