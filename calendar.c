@@ -301,7 +301,7 @@ void saveData(Calendar *s, int index){
         if(s[i].year == -1) continue;
         fprintf(fp, "%d %d %d %d %s %s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].text, s[i].subject);
         }
-    fclose(fp); printf("=>저장됨! ");
+    fclose(fp); printf("\n-> 일정이 저장되었습니다\n");
     }  
 
 
@@ -311,7 +311,6 @@ int loadData(Calendar *s){
     fp = fopen("calendar.txt", "rt");
     if(fp ==NULL) printf("\n-> 저장된 일정이 없습니다\n");
     else{
-        printf("=> 로딩 성공!\n");
         for(; i < 100; i++){
             fscanf(fp, "%d", &s[i].year); 
             if(feof(fp)) break;
@@ -322,6 +321,7 @@ int loadData(Calendar *s){
             fscanf(fp, "%[^\n]s", s[i].subject);
         }
         fclose(fp);
+        printf("\n-> 저장된 일정을 로딩했습니다\n");
         return i;
     }
     return 0;
