@@ -163,7 +163,8 @@ int updatePlan(Calendar *p){
     int check=-1; //숫자로만 구성되었는지 확인
 
     while(check!=1){
-        fputs("[수정] 년도: ",stdout);
+        printf("\n[수정]\n");
+        fputs("년도: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
@@ -177,7 +178,7 @@ int updatePlan(Calendar *p){
     p->month= -1;
     check = -1;
     while(p->month>12||p->month<=0||check!=1){
-        fputs("[수정] 월: ",stdout);
+        fputs("월: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
@@ -192,7 +193,7 @@ int updatePlan(Calendar *p){
     p->day = -1;
     check = -1;
     while(p->day>31||p->day<=0||check!=1){
-        fputs("[수정] 일: ",stdout);
+        fputs("일: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
@@ -204,14 +205,14 @@ int updatePlan(Calendar *p){
         if(p->day>31||p->day<=0) printf("-> 1~31의 숫자를 입력해주세요\n\n");
     }
 
-    fputs("[수정] 과목명: ",stdout);
+    fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
 
     p->type = -1;
     check = -1;
     while(p->type<1||p->type>4||check!=1){
-        fputs("[수정] 분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
+        fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
@@ -255,6 +256,7 @@ int deletePlan(Calendar *s){
 }
 
 void searchPlan_type(Calendar p[], int count){
+    int buff[100];
     int scnt = 0;
     int search=-1;
     printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
@@ -262,8 +264,13 @@ void searchPlan_type(Calendar p[], int count){
     printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n");
     printf("----------------------------\n");
     while(search<0||search>4){   
-        printf("=> ");
-        scanf("%d",&search);
+        fputs("=> ",stdout);
+        clearbuffer();
+        scanf("%[^\n]s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
         if((search<0||search>4)) printf("잘못 입력하였습니다.\n");
     }
     if(search==0) return; //0입력시 처음으로
