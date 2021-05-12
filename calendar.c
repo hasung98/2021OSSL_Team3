@@ -23,15 +23,21 @@ void clearbuffer(){
 
 int createPlan(Calendar *p){
     char buff[100];
-    while()
-    printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
-    fputs("년: ",stdout);
-    clearbuffer();
-    scanf("%s", buff);
-    printf("%s",buff);
-    assert(isdigit(buff));
-    p->year=atoi(buff);
-
+    int check=-1;
+    while(check!=1)
+    {
+        printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
+        fputs("년: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        printf("%s",buff);
+        for(int i=0; i<strlen(buff);i++) 
+        {
+            if(!isdigit(buff[i])) continue;
+        }
+        p->year=atoi(buff);
+        check=1;
+    }
     p->month= -1;
     while(p->month>12||p->month<=0){
         clearbuffer();
