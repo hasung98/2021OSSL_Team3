@@ -24,27 +24,18 @@ void clearbuffer(){
 int createPlan(Calendar *p){
     char buff[100];
     int check=-1; //숫자로만 구성되었는지 확인
-    int N = 0; //입력받은 buff의 길이
     printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
 
     while(check!=1){
         fputs("년: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        N = strlen(buff);
-
-        int i ;
-        for(i =0;i<N;i++){
-            if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
-            {
-                printf("-> 숫자를 입력해주세요\n\n");
-                break;
-            }
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue; //check_char가 1이면 다시 입력
         }
-        if(i==N){           //i가 마지막요소이면(끝까지 숫자로만 구성되어있으면)
-            p->year=atoi(buff);
-            check=1;
-        }
+        p->year=atoi(buff);
+        check=1;
     }
 
     p->month= -1;
@@ -53,20 +44,13 @@ int createPlan(Calendar *p){
         fputs("월: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        N = strlen(buff);
-        int i ;
-        for(i =0;i<N;i++){
-            if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
-            {
-                printf("숫자를 입력해주세요\n\n");
-                break;
-            }
+        if(check_char(buff)){
+            printf("숫자를 입력해주세요\n\n");
+            continue;
         }
-        if(i==N){           //i가 마지막요소이면(끝까지 숫자로만 구성되어있으면)
-            p->month=atoi(buff);
-            check=1;
-        }
-        if(p->month>12||p->month<=0) printf("-> 1~12의 숫자를 입력해주세요\n\n");  //1~12 이외의 숫자 입력시 다시 입력받음
+        p->month=atoi(buff);
+        check=1;
+        if(p->month>12||p->month<=0) printf("-> 1~12의 숫자를 입력해주세요\n\n");  //1~12 이외의 숫자 입력시 다시 입력
     }
 
     p->day = -1;
@@ -75,8 +59,10 @@ int createPlan(Calendar *p){
         fputs("일: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        N = strlen(buff);
-       
+        if(check_char(buff)){
+            printf("숫자를 입력해주세요\n\n");
+            continue;
+        }
         p->day=atoi(buff);
         if(p->day>31||p->day<=0) printf("-> 1~31의 숫자를 입력해주세요\n\n");
     }
@@ -84,8 +70,10 @@ int createPlan(Calendar *p){
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
+
     p->type = -1;
-    while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
+    check = -1;
+    while((p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4)||){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
@@ -107,14 +95,14 @@ int createPlan(Calendar *p){
     return 1;
 } // 일정 추가 함수 
 
-int check_int(char *buff)
+int check_char(char *buff)
 {
     int N=strlen(buff);
     int i ;
     for(i =0;i<N;i++){
-        if(!isdigit(buff[i]))   return 0;
+        if(!isdigit(buff[i]))   return 1;
     }
-    return 1;       //문자가 들어있으면 0, 숫자로만 구성되어있으면 1 return
+    return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
 }
 
 char* transer(int type){  
