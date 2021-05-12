@@ -30,21 +30,20 @@ int createPlan(Calendar *p){
         fputs("년: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        printf("%c",buff[0]);
-        printf("%c",buff[1]);
-        printf("%c",buff[2]);
-        printf("%c",buff[3]);
-        for(int i =0;i<strlen(buff);i++){
-            printf("%c ",buff[i]);
+        
+        int N = strlen(buff);
+        int i ;
+        for(i =0;i<N;i++){
             if(!isdigit(buff[i])) 
             {
-                printf("들어감?");
+                printf("\n숫자를 입력해주세요\n");
                 break;
             }
         }
-        printf("나옴");
-        p->year=atoi(buff);
-        check=1;
+        if(i==N){
+            p->year=atoi(buff);
+            check=1;
+        }
     }
     p->month= -1;
     while(p->month>12||p->month<=0){
