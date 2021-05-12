@@ -46,22 +46,29 @@ int main (){
             }
         }
         else if (menu == 5){
-            int check = -1;
-            while(check != 1 && check != 2){    
+            char buff[100];
+            int choice = -1;
+            while(choice != 1 && choice != 2){    
                 printf("\n[ 일정 검색 ]\n");
                 printf("\n검색방법을 입력해주세요(종료: 0)");
                 printf("\n----------------------------\n");
                 printf("1. 분류로 검색(시험/과제/팀플/기타)\n2. 날짜로 검색\n");
                 printf("----------------------------\n");
-                printf("=> ");
-                scanf("%d",&check);
-                if(check == 0) break; //0 입력시 처음으로
-                if(check!=1 && check!=2) printf("\n잘못 입력하셨습니다. 다시 입력해주세요\n");
+                fputs("=> ",stdout);
+                clearbuffer();
+                scanf("%s", buff);
+                if(check_char(buff)){
+                    printf("-> 숫자를 입력해주세요\n\n");
+                    continue;
+                }
+                choice=atoi(buff);
+                if(choice == 0) break; //0 입력시 처음으로
+                if(choice!=1 && choice!=2) printf("\n잘못 입력하셨습니다. 다시 입력해주세요\n");
             }
-            if(check==1){
+            if(choice==1){
                 searchPlan_type(p,count);
             }
-            else if(check==2){
+            else if(choice==2){
                 searchPlan_month(p,count);
             }
         }
