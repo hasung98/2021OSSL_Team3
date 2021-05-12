@@ -83,14 +83,21 @@ int createPlan(Calendar *p){
         }
         if(p->type<1||p->type>4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
+
+    int choice = -1;
     check=-1;
-    while(check!=1&&check!=2)
+    while((choice!=1&&choice!=2)||check!=1)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
-        scanf("%d", &check);
-        if(check!=1&&check!=2) printf("-> 1또는 2를 입력해주세요\n\n");
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        if(choice!=1&&choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
-    if(check ==1){
+    if(choice ==1){  //비고 입력(1.예) 선택시 비고 입력받음
         fputs("비고: ",stdout);
         clearbuffer();
         scanf("%[^\n]s", p->text);
