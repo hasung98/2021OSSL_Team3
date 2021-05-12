@@ -1,6 +1,7 @@
 #include "calendar.h"
 
 int selectMenu(){
+    char buff[100];
     int menu;
     printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
@@ -12,8 +13,21 @@ int selectMenu(){
     printf("7. 일정 저장\n");
     printf("0. 종료\n");
     printf("\n====================================\n\n");
-    printf("-> 원하시는 메뉴를 입력하세요: ");
-    scanf(" %d",&menu);
+
+    int check = -1;
+    while(menu<0||menu>7||check!=1){
+        fputs("-> 원하시는 메뉴를 입력하세요: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("\n-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        menu=atoi(buff);
+        if(menu<0||menu>7){
+            printf("-> 0~7의 숫자를 입력해주세요\n\n");
+        }
+    }
     return menu;
 } // 메뉴 선택 함수 
 
