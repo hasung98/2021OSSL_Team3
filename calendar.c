@@ -420,25 +420,8 @@ void showCalendar(int ndays, int d1){
         printf(" %d\t",i); // day 출력
         if((i+d1)%7 == 0) printf("\n"); //7로 나눠서 나머지가 0 이면 줄바꿈
     }
-}//월을 입력받아 해당 월의 calender를 출력하는 함수
-char calendar_help(int month, char *buff){
-while(YES){
-                printf("\n[ 달력보기 ]\n");
-                fputs("월: ",stdout);
-                clearbuffer();
-                scanf("%s", buff);
-                if(check_char(buff)){
-                    printf("-> 숫자를 입력해주세요\n\n");
-                    continue;
-                }
-                month=atoi(buff);
-                if(month>12 || month<1) {
-                    printf("-> 1~12의 숫자를 입력해주세요\n\n");
-                    continue;
-                }
-                else break;
-            }
-}
+}// 년도와 월을 입력받아 해당 월의 calender를 출력하는 함수
+
 
 int is_leap_year(int y){
     if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
