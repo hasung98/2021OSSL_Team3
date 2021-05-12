@@ -64,6 +64,7 @@ int createPlan(Calendar *p){
             continue;
         }
         p->day=atoi(buff);
+        check=1;
         if(p->day>31||p->day<=0) printf("-> 1~31의 숫자를 입력해주세요\n\n");
     }
 
@@ -81,6 +82,8 @@ int createPlan(Calendar *p){
             printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
+        p->type=atoi(buff);
+        check=1;
         if(p->type<1||p->type>4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
 
@@ -95,6 +98,8 @@ int createPlan(Calendar *p){
             printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
+        choice=atoi(buff);
+        check=1;
         if(choice!=1&&choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
     if(choice ==1){  //비고 입력(1.예) 선택시 비고 입력받음
