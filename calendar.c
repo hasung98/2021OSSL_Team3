@@ -22,24 +22,32 @@ void clearbuffer(){
 }
 
 int createPlan(Calendar *p){
-    char buff;
+    char buff[100];
     printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
     fputs("년: ",stdout);
     clearbuffer();
-    scanf("%[^\n]s", p->subject);
+    scanf("%[^\n]s", buff);
+    assert(isdigit(buff));
+    p->year=atoi(buff);
+
     p->month= -1;
     while(p->month>12||p->month<=0){
         clearbuffer();
-        scanf("%[^\n]s", p->subject);
+        scanf("%[^\n]s", buff);
+        assert(isdigit(buff));
+        p->month=atoi(buff);
         if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
     }
+
     p->day = -1;
     while(p->day>31||p->day<=0){
         clearbuffer();
-        scanf("%[^\n]s", p->subject);
-        assert(isalnum(p->day));
+        scanf("%[^\n]s", buff);
+        assert(isdigit(buff));
+        p->day=atoi(buff);
         if(p->day>31||p->day<=0) printf("잘못 입력하였습니다.\n");
     }
+
     fputs("과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
