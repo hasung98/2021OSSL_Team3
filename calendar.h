@@ -21,6 +21,8 @@ void clearbuffer();
 int createPlan(Calendar *p);
 int readPlan(Calendar p);
 
+int check_int(char *buff)
+
 void listPlan(Calendar *p, int count);
 int selectDataNo(Calendar *p, int count);
 

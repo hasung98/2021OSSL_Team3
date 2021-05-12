@@ -37,7 +37,7 @@ int createPlan(Calendar *p){
         for(i =0;i<N;i++){
             if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
             {
-                printf("\n숫자를 입력해주세요\n");
+                printf("-> 숫자를 입력해주세요\n\n");
                 break;
             }
         }
@@ -52,13 +52,13 @@ int createPlan(Calendar *p){
     while(p->month>12||p->month<=0||check!=1){
         fputs("월: ",stdout);
         clearbuffer();
-        scanf("s", buff);
+        scanf("%s", buff);
         N = strlen(buff);
         int i ;
         for(i =0;i<N;i++){
             if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
             {
-                printf("\n숫자를 입력해주세요\n");
+                printf("숫자를 입력해주세요\n\n");
                 break;
             }
         }
@@ -66,17 +66,19 @@ int createPlan(Calendar *p){
             p->month=atoi(buff);
             check=1;
         }
-        if(p->month>12||p->month<=0) printf("1~12 사이의 숫자를 입력해주세요\n");  //1~12 이외의 숫자 입력시 다시 입력받음
+        if(p->month>12||p->month<=0) printf("-> 1~12의 숫자를 입력해주세요\n\n");  //1~12 이외의 숫자 입력시 다시 입력받음
     }
 
     p->day = -1;
-    while(p->day>31||p->day<=0){
+    check = -1;
+    while(p->day>31||p->day<=0||check!=1){
         fputs("일: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        assert(isdigit(buff));
+        N = strlen(buff);
+       
         p->day=atoi(buff);
-        if(p->day>31||p->day<=0) printf("잘못 입력하였습니다.\n");
+        if(p->day>31||p->day<=0) printf("-> 1~31의 숫자를 입력해주세요\n\n");
     }
 
     fputs("과목명: ",stdout);
@@ -86,14 +88,14 @@ int createPlan(Calendar *p){
     while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
         scanf("%d", &p->type);
-        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하였습니다.\n");
+        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
     check=-1;
     while(check!=1&&check!=2)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
         scanf("%d", &check);
-        if(check!=1&&check!=2) printf("잘못 입력하였습니다.\n");
+        if(check!=1&&check!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
     if(check ==1){
         fputs("비고: ",stdout);
@@ -104,6 +106,16 @@ int createPlan(Calendar *p){
 
     return 1;
 } // 일정 추가 함수 
+
+int check_int(char *buff)
+{
+    int N=strlen(buff);
+    int i ;
+    for(i =0;i<N;i++){
+        if(!isdigit(buff[i]))   return 0;
+    }
+    return 1;       //문자가 들어있으면 0, 숫자로만 구성되어있으면 1 return
+}
 
 char* transer(int type){  
     char* p_type = malloc(sizeof(char)*100);
