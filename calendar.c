@@ -45,7 +45,7 @@ int createPlan(Calendar *p){
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("숫자를 입력해주세요\n\n");
+            printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
         p->month=atoi(buff);
@@ -60,7 +60,7 @@ int createPlan(Calendar *p){
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("숫자를 입력해주세요\n\n");
+            printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
         p->day=atoi(buff);
@@ -73,10 +73,15 @@ int createPlan(Calendar *p){
 
     p->type = -1;
     check = -1;
-    while((p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4)||){
+    while(p->type<1||p->type>4||check!=1){
         fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
-        scanf("%d", &p->type);
-        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        if(p->type<1||p->type>4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
     check=-1;
     while(check!=1&&check!=2)
