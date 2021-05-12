@@ -159,43 +159,92 @@ int selectDataNo(Calendar *p, int count){
 } // data 선택 함수 
 
 int updatePlan(Calendar *p){
-    fputs("수정된 년도: ",stdout);
-    clearbuffer();
-    scanf("%d",&p->year);
-    p->month = -1;
-    while(p->month>12||p->month<=0){
-        fputs("수정된 월: ",stdout);
-        scanf("%d",&p->month);
-        if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
+    char buff[100];
+    int check=-1; //숫자로만 구성되었는지 확인
+
+    while(check!=1){
+        fputs("[수정] 년도: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue; //check_char가 1이면 다시 입력
+        }
+        p->year=atoi(buff);
+        check=1;
     }
+
+    p->month= -1;
+    check = -1;
+    while(p->month>12||p->month<=0||check!=1){
+        fputs("[수정] 월: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        p->month=atoi(buff);
+        check=1;
+        if(p->month>12||p->month<=0) printf("-> 1~12의 숫자를 입력해주세요\n\n");  //1~12 이외의 숫자 입력시 다시 입력
+    }
+
     p->day = -1;
-    while(p->day>31||p->day<=0){
-        fputs("수정된 일: ",stdout);
-        scanf("%d",&p->day);
-        if(p->day>31||p->day<=0) printf("잘못 입력하였습니다.\n");
+    check = -1;
+    while(p->day>31||p->day<=0||check!=1){
+        fputs("[수정] 일: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        p->day=atoi(buff);
+        check=1;
+        if(p->day>31||p->day<=0) printf("-> 1~31의 숫자를 입력해주세요\n\n");
     }
-    fputs("과목명: ",stdout);
+
+    fputs("[수정] 과목명: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
-    p->type=-1;
-    while(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4){
-        fputs("분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
-        scanf("%d", &p->type);
-        if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하셨습니다.\n");
+
+    p->type = -1;
+    check = -1;
+    while(p->type<1||p->type>4||check!=1){
+        fputs("[수정] 분류(1.시험 2.과제 3.팀플 4.기타): ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        p->type=atoi(buff);
+        check=1;
+        if(p->type<1||p->type>4) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
-    int check=-1;
-    while(check!=1&&check!=2)
+
+    int choice = -1;
+    check=-1;
+    while((choice!=1&&choice!=2)||check!=1)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
-        scanf("%d", &check);
-        if(check!=1&&check!=2) printf("잘못 입력하셨습니다.\n");
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        choice=atoi(buff);
+        check=1;
+        if(choice!=1&&choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
-    if(check ==1){
-        fputs("비고: ",stdout);
+    if(choice ==1){  //비고 입력(1.예) 선택시 비고 입력받음
+        fputs("[수정] 비고: ",stdout);
         clearbuffer();
         scanf("%[^\n]s", p->text);
     }
     else strcpy(p->text,"-");
+
     return 1;
 } // 일정 수정 함수 
 
