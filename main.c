@@ -6,6 +6,7 @@ int main (){
     int index = count; 
     int menu;
     int exit =1;
+    char buff[100];
 
     while(exit){
         menu = selectMenu();
@@ -63,7 +64,7 @@ int main (){
                 }
                 choice=atoi(buff);
                 if(choice == 0) break; //0 입력시 처음으로
-                if(choice!=1 && choice!=2) printf("\n잘못 입력하셨습니다. 다시 입력해주세요\n");
+                if(choice!=1 && choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
             }
             if(choice==1){
                 searchPlan_type(p,count);
@@ -73,28 +74,25 @@ int main (){
             }
         }
         else if (menu == 6){
-            int y,m,ndays,d1;
+            int month,ndays,d1;
+
             while(YES){
-                printf("년도: ");
-                scanf(" %d",&y);
-                if(y<2000) {
-                    printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
+                fputs("월: ",stdout);
+                clearbuffer();
+                scanf("%s", buff);
+                if(check_char(buff)){
+                    printf("-> 숫자를 입력해주세요\n\n");
+                    continue;
+                }
+                month=atoi(buff);
+                if(month>12 || month<1) {
+                    printf("-> 1~12의 숫자를 입력해주세요\n\n");
                     continue;
                 }
                 else break;
             }
-            
-            while(YES){
-                printf("월: ");
-                scanf(" %d",&m);
-                if(m>12 || m<1) {
-                    printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
-                    continue;
-                }
-                else break;
-            }
-            ndays = month_days(y,m);
-            d1= first_day(y,m);
+            ndays = month_days(2021,month);
+            d1= first_day(2021,month);
             showCalendar(ndays,d1);
         }
         else if (menu == 7){
