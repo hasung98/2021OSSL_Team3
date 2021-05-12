@@ -23,36 +23,50 @@ void clearbuffer(){
 
 int createPlan(Calendar *p){
     char buff[100];
-    int check=-1;
-    while(check!=1)
-    {
-        printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
+    int check=-1; //숫자로만 구성되었는지 확인
+    int N = 0; //입력받은 buff의 길이
+    printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
+
+    while(check!=1){
         fputs("년: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        
-        int N = strlen(buff);
+        N = strlen(buff);
+
         int i ;
         for(i =0;i<N;i++){
-            if(!isdigit(buff[i])) 
+            if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
             {
                 printf("\n숫자를 입력해주세요\n");
                 break;
             }
         }
-        if(i==N){
+        if(i==N){           //i가 마지막요소이면(끝까지 숫자로만 구성되어있으면)
             p->year=atoi(buff);
             check=1;
         }
     }
+
     p->month= -1;
-    while(p->month>12||p->month<=0){
+    check = -1;
+    while(p->month>12||p->month<=0||check!=1){
         fputs("월: ",stdout);
         clearbuffer();
         scanf("s", buff);
-        assert(isdigit(buff));
-        p->month=atoi(buff);
-        if(p->month>12||p->month<=0) printf("잘못 입력하였습니다.\n");
+        N = strlen(buff);
+        int i ;
+        for(i =0;i<N;i++){
+            if(!isdigit(buff[i])) //입력받은 값에 문자가 포함되어 있으면 다시 입력
+            {
+                printf("\n숫자를 입력해주세요\n");
+                break;
+            }
+        }
+        if(i==N){           //i가 마지막요소이면(끝까지 숫자로만 구성되어있으면)
+            p->month=atoi(buff);
+            check=1;
+        }
+        if(p->month>12||p->month<=0) printf("1~12 사이의 숫자를 입력해주세요\n");  //1~12 이외의 숫자 입력시 다시 입력받음
     }
 
     p->day = -1;
