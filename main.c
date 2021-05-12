@@ -58,7 +58,7 @@ int main (){
                 clearbuffer();
                 scanf("%s", buff);
                 if(check_char(buff)){
-                    printf("-> 숫자를 입력해주세요\n\n");
+                    printf("\n-> 숫자를 입력해주세요\n\n");
                     continue;
                 }
                 choice=atoi(buff);

@@ -256,7 +256,7 @@ int deletePlan(Calendar *s){
 }
 
 void searchPlan_type(Calendar p[], int count){
-    int buff[100];
+    char buff[100];
     int scnt = 0;
     int search=-1;
     printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
@@ -266,15 +266,17 @@ void searchPlan_type(Calendar p[], int count){
     while(search<0||search>4){   
         fputs("=> ",stdout);
         clearbuffer();
-        scanf("%[^\n]s", buff);
+        scanf("%s", buff);
         if(check_char(buff)){
             printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
-        if((search<0||search>4)) printf("잘못 입력하였습니다.\n");
+        search=atoi(buff);
+        if((search<0||search>4)) printf("-> 1~4의 숫자를 입력해주세요\n\n");
     }
     if(search==0) return; //0입력시 처음으로
     char *p_type = transer(search);
+
     printf("\n> %s 일정을 검색합니다\n",p_type);
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
@@ -295,25 +297,38 @@ void searchPlan_type(Calendar p[], int count){
 }
 
 void searchPlan_month(Calendar *p, int count){
-    int check = -1;
-    while(check != 1 && check != 2){
-        printf("\n\n날짜 검색방법을 입력해주세요(종료: 0)");
+    char buff[100];
+    int choice = -1;
+    while(choice != 1 && choice != 2){
+        printf("\n날짜 검색방법을 입력해주세요(종료: 0)");
         printf("\n----------------------------\n");
         printf("1. 월(Month)로 검색\n2. 월(Month) & 일(Day)로 검색\n");
         printf("----------------------------\n");
-        printf("=> ");
-        scanf("%d",&check);
-        if(check == 0) return;
-        if(check!=1 && check!=2) printf("잘못 입력하셨습니다. 다시 입력해주세요\n");
+        fputs("=> ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        choice=atoi(buff);
+        if(choice == 0) return;
+        if(choice!=1 && choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
-    if(check ==1){
+    if(choice ==1){
         printf("\n[ 월(Month)로 일정검색 ]\n");
         int scnt = 0;
         int s_month = 0;
         while(s_month<=0||s_month>12){
-            printf("\n검색을 원하시는 월을 입력해주세요: ");
-            scanf("%d",&s_month);
-            if(s_month<=0||s_month>12) printf("잘못 입력하였습니다\n");
+            fputs("\n검색을 원하시는 월을 입력해주세요: ",stdout);
+            clearbuffer();
+            scanf("%s", buff);
+            if(check_char(buff)){
+                printf("-> 숫자를 입력해주세요\n\n");
+                continue;
+            }
+            s_month=atoi(buff);
+            if(s_month<=0||s_month>12) printf("-> 1~12의 숫자를 입력해주세요\n\n");
         }
         printf("\n> %d월 일정을 검색합니다\n",s_month);
     
@@ -331,7 +346,7 @@ void searchPlan_month(Calendar *p, int count){
         if(scnt==0) printf("\n-> 해당 월에는 일정이 없습니다\n");
         printf("\n");
     }
-    else if(check == 2)
+    else if(choice == 2)
     {
         printf("\n[ 월(Month)과 일(Day)로 일정검색 ]\n");
         int scnt = 0;
@@ -339,11 +354,29 @@ void searchPlan_month(Calendar *p, int count){
         int s_day=-1;
         while(s_month<=0||s_month>12||s_day<=0||s_day>31){ 
             printf("\n검색을 원하시는 월과 일을 순서대로 입력해주세요\n");
-            printf("월: ");
-            scanf("%d",&s_month);
-            printf("일: ");
-            scanf("%d",&s_day); 
-            if(s_month<=0||s_month>12||s_day<=0||s_day>31) printf("잘못 입력하였습니다.\n");  
+            fputs("월: ",stdout);
+            clearbuffer();
+            scanf("%s", buff);
+            if(check_char(buff)){
+                printf("-> 숫자를 입력해주세요\n\n");
+                continue;
+            }
+            s_month=atoi(buff);
+            if(s_month<=0||s_month>12) 
+            {
+                printf("-> 1~12의 숫자를 입력해주세요\n\n");
+                continue;
+            }
+
+            fputs("일: ",stdout);
+            clearbuffer();
+            scanf("%s", buff);
+            if(check_char(buff)){
+                printf("-> 숫자를 입력해주세요\n\n");
+                continue;
+            }
+            s_day=atoi(buff); 
+            if(s_day<=0||s_day>31) printf("-> 1~31의 숫자를 입력해주세요\n\n");  
         }
         
         printf("\n> %d월 %d일 일정을 검색합니다.\n",s_month,s_day);
