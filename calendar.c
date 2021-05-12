@@ -1,8 +1,16 @@
 #include "calendar.h"
 
+int check_char(char *buff)
+{
+    int N=strlen(buff);
+    int i ;
+    for(i =0;i<N;i++){
+        if(!isdigit(buff[i]))   return 1;
+    }
+    return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
+}
+
 int selectMenu(){
-    char buff[100];
-    int menu;
     printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
     printf("2. 일정 추가\n");
@@ -14,16 +22,19 @@ int selectMenu(){
     printf("0. 종료\n");
     printf("\n====================================\n\n");
 
+    char buff[100];
+    int menu = -1;
     int check = -1;
     while(menu<0||menu>7||check!=1){
         fputs("-> 원하시는 메뉴를 입력하세요: ",stdout);
-        clearbuffer();
+        //clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
             printf("\n-> 숫자를 입력해주세요\n\n");
             continue;
         }
         menu=atoi(buff);
+        check=1;
         if(menu<0||menu>7){
             printf("-> 0~7의 숫자를 입력해주세요\n\n");
         }
@@ -125,16 +136,6 @@ int createPlan(Calendar *p){
 
     return 1;
 } // 일정 추가 함수 
-
-int check_char(char *buff)
-{
-    int N=strlen(buff);
-    int i ;
-    for(i =0;i<N;i++){
-        if(!isdigit(buff[i]))   return 1;
-    }
-    return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
-}
 
 char* transer(int type){  
     char* p_type = malloc(sizeof(char)*100);
