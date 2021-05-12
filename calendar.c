@@ -30,16 +30,25 @@ int createPlan(Calendar *p){
         fputs("년: ",stdout);
         clearbuffer();
         scanf("%s", buff);
-        printf("%s",buff);
-        for(int i=0; i<strlen(buff);i++) 
-        {
-            if(!isdigit(buff[i])) continue;
+        printf("%c",buff[0]);
+        printf("%c",buff[1]);
+        printf("%c",buff[2]);
+        printf("%c",buff[3]);
+        for(int i =0;i<strlen(buff);i++){
+            printf("%c ",buff[i]);
+            if(!isdigit(buff[i])) 
+            {
+                printf("들어감?");
+                break;
+            }
         }
+        printf("나옴");
         p->year=atoi(buff);
         check=1;
     }
     p->month= -1;
     while(p->month>12||p->month<=0){
+        fputs("월: ",stdout);
         clearbuffer();
         scanf("s", buff);
         assert(isdigit(buff));
@@ -49,6 +58,7 @@ int createPlan(Calendar *p){
 
     p->day = -1;
     while(p->day>31||p->day<=0){
+        fputs("일: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         assert(isdigit(buff));
@@ -65,7 +75,7 @@ int createPlan(Calendar *p){
         scanf("%d", &p->type);
         if(p->type!=1&&p->type!=2&&p->type!=3&&p->type!=4) printf("잘못 입력하였습니다.\n");
     }
-    int check=-1;
+    check=-1;
     while(check!=1&&check!=2)
     {
         printf("비고를 입력하시겠습니까?(1.예 2.아니오): ");
