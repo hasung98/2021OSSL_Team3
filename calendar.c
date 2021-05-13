@@ -270,7 +270,7 @@ int updatePlan(Planner *p){
         if(choice!=1&&choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
     }
     if(choice ==1){  //비고 입력(1.예) 선택시 비고 입력받음
-        fputs("[수정] 비고: ",stdout);
+        fputs("비고: ",stdout);
         clearbuffer();
         scanf("%[^\n]s", p->text);
     }
@@ -508,7 +508,7 @@ void saveData(Planner *s, int index){
     fp = fopen("calendar.txt","wt");
     for(int i = 0; i < index; i++){ 
         if(s[i].year == -1) continue;
-        fprintf(fp, "%d %d %d %d %s %s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].text, s[i].subject);
+        fprintf(fp, "%d\t%d\t%d\t%d\t%s\t%s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].subject,s[i].text);
         }
     fclose(fp); printf("\n-> 일정이 저장되었습니다\n");
     }  
@@ -523,11 +523,7 @@ int loadData(Planner *s){
         for(; i < 100; i++){
             fscanf(fp, "%d", &s[i].year); 
             if(feof(fp)) break;
-            fscanf(fp, "%d", &s[i].month); 
-            fscanf(fp, "%d", &s[i].day); 
-            fscanf(fp, "%d", &s[i].type); 
-            fscanf(fp, "%s", s[i].text);
-            fscanf(fp, "%[^\n]s", s[i].subject);
+            fscanf(fp, "\t%d\t%d\t%d\t%[^\n]s\t%[^\n]s\n", &s[i].month, &s[i].day, &s[i].type, s[i].subject, s[i].text); 
         }
         fclose(fp);
         printf("\n-> 저장된 일정을 로딩했습니다\n");
