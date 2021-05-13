@@ -72,8 +72,8 @@
 ![image](https://user-images.githubusercontent.com/70621926/117544819-17f0bf00-b05e-11eb-94e9-ab6ec6c58223.png)
 -----------------------------------------
 # 부가기능
-- 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다. 숫자가 아닌 문자가 입력되거나 범위 이외의 값이 입력되는 경우, 값을 다시 입력받습니다.     
-![image](https://user-images.githubusercontent.com/70621926/117544852-453d6d00-b05e-11eb-9f1b-6227285dfe74.png)      
+- 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다.     
+- 숫자가 아닌 문자가 입력되거나 범위 이외의 값이 입력되는 경우, error메세지와 함께 값을 다시 입력받습니다.    
 ![image](https://user-images.githubusercontent.com/70621926/118196648-533d2480-b488-11eb-911a-0fb476fe36cd.png)    
 ![image](https://user-images.githubusercontent.com/70621926/118196741-7ec00f00-b488-11eb-883f-ef628e728ed6.png)    
 ![image](https://user-images.githubusercontent.com/70621926/118196815-9bf4dd80-b488-11eb-8407-110873cf2d11.png)    
