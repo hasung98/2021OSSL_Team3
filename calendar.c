@@ -7,40 +7,40 @@ int check_char(char *buff)
     for(i =0;i<N;i++){
         if(!isdigit(buff[i]))   return 1;
     }
-    return 0;       //ë¬¸ìê°€ ë“¤ì–´ìˆìœ¼ë©´ 1, ìˆ«ìë¡œë§Œ êµ¬ì„±ë˜ì–´ìˆìœ¼ë©´ 0 return
+    return 0;       //¹®ÀÚ°¡ µé¾îÀÖÀ¸¸é 1, ¼ıÀÚ·Î¸¸ ±¸¼ºµÇ¾îÀÖÀ¸¸é 0 return
 }
 
 int selectMenu(){
-    printf("\n\n========== í•œë™ A+ ë„ìš°ë¯¸ ==========\n\n");
-    printf("1. ì „ì²´ ì¼ì • ì¡°íšŒ\n");
-    printf("2. ì¼ì • ì¶”ê°€\n");
-    printf("3. ì¼ì • ìˆ˜ì •\n");
-    printf("4. ì¼ì • ì‚­ì œ\n");
-    printf("5. ì¼ì • ê²€ìƒ‰\n");
-    printf("6. ë‹¬ë ¥ ë³´ê¸°\n");
-    printf("7. ì¼ì • ì €ì¥\n");
-    printf("0. ì¢…ë£Œ\n");
+    printf("\n\n========== ÇÑµ¿ A+ µµ¿ì¹Ì ==========\n\n");
+    printf("1. ÀüÃ¼ ÀÏÁ¤ Á¶È¸\n");
+    printf("2. ÀÏÁ¤ Ãß°¡\n");
+    printf("3. ÀÏÁ¤ ¼öÁ¤\n");
+    printf("4. ÀÏÁ¤ »èÁ¦\n");
+    printf("5. ÀÏÁ¤ °Ë»ö\n");
+    printf("6. ´Ş·Â º¸±â\n");
+    printf("7. ÀÏÁ¤ ÀúÀå\n");
+    printf("0. Á¾·á\n");
     printf("\n====================================\n\n");
 
     char buff[100];
     int menu = -1;
     int check = -1;
     while(menu<0||menu>7||check!=1){
-        fputs("-> ì›í•˜ì‹œëŠ” ë©”ë‰´ë¥¼ ì…ë ¥í•˜ì„¸ìš”: ",stdout);
+        fputs("-> ¿øÇÏ½Ã´Â ¸Ş´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä: ",stdout);
         //clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         menu=atoi(buff);
         check=1;
         if(menu<0||menu>7){
-            printf("-> 0~7ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> 0~7ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
         }
     }
     return menu;
-} // ë©”ë‰´ ì„ íƒ í•¨ìˆ˜ 
+} // ¸Ş´º ¼±ÅÃ ÇÔ¼ö 
 
 void clearbuffer(){
     while (getchar() != '\n');
@@ -48,16 +48,16 @@ void clearbuffer(){
 
 int createPlan(Calendar *p){
     char buff[100];
-    int check=-1; //ìˆ«ìë¡œë§Œ êµ¬ì„±ë˜ì—ˆëŠ”ì§€ í™•ì¸
-    printf("\nex) ë…„:2021 ì›”:5 ì¼:1 ê³¼ëª©ëª…:OSS ë¶„ë¥˜:2\n\n");
+    int check=-1; //¼ıÀÚ·Î¸¸ ±¸¼ºµÇ¾ú´ÂÁö È®ÀÎ
+    printf("\nex) ³â:2021 ¿ù:5 ÀÏ:1 °ú¸ñ¸í:OSS ºĞ·ù:2\n\n");
 
     while(check!=1){
-        fputs("ë…„: ",stdout);
+        fputs("³â: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
-            continue; //check_charê°€ 1ì´ë©´ ë‹¤ì‹œ ì…ë ¥
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
+            continue; //check_char°¡ 1ÀÌ¸é ´Ù½Ã ÀÔ·Â
         }
         p->year=atoi(buff);
         check=1;
@@ -66,125 +66,125 @@ int createPlan(Calendar *p){
     p->month= -1;
     check = -1;
     while(p->month>12||p->month<=0||check!=1){
-        fputs("ì›”: ",stdout);
+        fputs("¿ù: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->month=atoi(buff);
         check=1;
-        if(p->month>12||p->month<=0) printf("-> 1~12ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");  //1~12 ì´ì™¸ì˜ ìˆ«ì ì…ë ¥ì‹œ ë‹¤ì‹œ ì…ë ¥
+        if(p->month>12||p->month<=0) printf("-> 1~12ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");  //1~12 ÀÌ¿ÜÀÇ ¼ıÀÚ ÀÔ·Â½Ã ´Ù½Ã ÀÔ·Â
     }
 
     p->day = -1;
     check = -1;
     while(p->day>31||p->day<=0||check!=1){
-        fputs("ì¼: ",stdout);
+        fputs("ÀÏ: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->day=atoi(buff);
         check=1;
-        if(p->day>31||p->day<=0) printf("-> 1~31ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(p->day>31||p->day<=0) printf("-> 1~31ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
 
-    fputs("ê³¼ëª©ëª…: ",stdout);
+    fputs("°ú¸ñ¸í: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
 
     p->type = -1;
     check = -1;
     while(p->type<1||p->type>4||check!=1){
-        fputs("ë¶„ë¥˜(1.ì‹œí—˜ 2.ê³¼ì œ 3.íŒ€í”Œ 4.ê¸°íƒ€): ",stdout);
+        fputs("ºĞ·ù(1.½ÃÇè 2.°úÁ¦ 3.ÆÀÇÃ 4.±âÅ¸): ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->type=atoi(buff);
         check=1;
-        if(p->type<1||p->type>4) printf("-> 1~4ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(p->type<1||p->type>4) printf("-> 1~4ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
 
     int choice = -1;
     check=-1;
     while((choice!=1&&choice!=2)||check!=1)
     {
-        printf("ë¹„ê³ ë¥¼ ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(1.ì˜ˆ 2.ì•„ë‹ˆì˜¤): ");
+        printf("ºñ°í¸¦ ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î?(1.¿¹ 2.¾Æ´Ï¿À): ");
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         choice=atoi(buff);
         check=1;
-        if(choice!=1&&choice!=2) printf("-> 1ë˜ëŠ” 2ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(choice!=1&&choice!=2) printf("-> 1¶Ç´Â 2¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
-    if(choice ==1){  //ë¹„ê³  ì…ë ¥(1.ì˜ˆ) ì„ íƒì‹œ ë¹„ê³  ì…ë ¥ë°›ìŒ
-        fputs("ë¹„ê³ : ",stdout);
+    if(choice ==1){  //ºñ°í ÀÔ·Â(1.¿¹) ¼±ÅÃ½Ã ºñ°í ÀÔ·Â¹ŞÀ½
+        fputs("ºñ°í: ",stdout);
         clearbuffer();
         scanf("%[^\n]s", p->text);
     }
     else strcpy(p->text,"-");
 
     return 1;
-} // ì¼ì • ì¶”ê°€ í•¨ìˆ˜ 
+} // ÀÏÁ¤ Ãß°¡ ÇÔ¼ö 
 
 char* transer(int type){  
     char* p_type = malloc(sizeof(char)*100);
-    if(type==1) strcpy(p_type , "ì‹œí—˜");
-    else if(type==2) strcpy(p_type, "ê³¼ì œ");
-    else if(type==3) strcpy(p_type, "íŒ€í”Œ");
-    else if(type==4) strcpy(p_type, "ê¸°íƒ€");
+    if(type==1) strcpy(p_type , "½ÃÇè");
+    else if(type==2) strcpy(p_type, "°úÁ¦");
+    else if(type==3) strcpy(p_type, "ÆÀÇÃ");
+    else if(type==4) strcpy(p_type, "±âÅ¸");
     return p_type;
-} //ìˆ«ìë¡œ ëœ typeì„ ë¬¸ìë¡œ ë°”ê¾¸ëŠ” í•¨ìˆ˜
+} //¼ıÀÚ·Î µÈ typeÀ» ¹®ÀÚ·Î ¹Ù²Ù´Â ÇÔ¼ö
 
 int readPlan(Calendar p){
     char *p_type;
     p_type = transer(p.type);
-    printf("%dë…„\t%dì›”\t%dì¼\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
+    printf("%d³â\t%d¿ù\t%dÀÏ\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
     free(p_type);
     return 1;
-}// ì¼ì • read í•¨ìˆ˜ 
+}// ÀÏÁ¤ read ÇÔ¼ö 
 
 void listPlan(Calendar *p, int count){
     int i = 0;
-    printf("\nNo\të…„\tì›”\tì¼\të¶„ë¥˜\tê³¼ëª©\të¹„ê³ \n");
+    printf("\nNo\t³â\t¿ù\tÀÏ\tºĞ·ù\t°ú¸ñ\tºñ°í\n");
     printf("-------------------------------------------------------\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
         printf("%d\t",i+1);
         readPlan(p[i]);
     }
-} // ì „ì²´ ì¼ì • ì¶œë ¥ í•¨ìˆ˜
+} // ÀüÃ¼ ÀÏÁ¤ Ãâ·Â ÇÔ¼ö
 
 int selectDataNo(Calendar *p, int count){
     int num;
     listPlan(p,count);
-    printf("\n-> ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”(ì¢…ë£Œ: 0): ");
+    printf("\n-> ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä(Á¾·á: 0): ");
     scanf(" %d",&num);
     return num;
-} // data ì„ íƒ í•¨ìˆ˜ 
+} // data ¼±ÅÃ ÇÔ¼ö 
 
 int updatePlan(Calendar *p){
     char buff[100];
-    int check=-1; //ìˆ«ìë¡œë§Œ êµ¬ì„±ë˜ì—ˆëŠ”ì§€ í™•ì¸
+    int check=-1; //¼ıÀÚ·Î¸¸ ±¸¼ºµÇ¾ú´ÂÁö È®ÀÎ
 
     while(check!=1){
-        printf("\n[ìˆ˜ì •]\n");
-        fputs("ë…„ë„: ",stdout);
+        printf("\n[¼öÁ¤]\n");
+        fputs("³âµµ: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
-            continue; //check_charê°€ 1ì´ë©´ ë‹¤ì‹œ ì…ë ¥
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
+            continue; //check_char°¡ 1ÀÌ¸é ´Ù½Ã ÀÔ·Â
         }
         p->year=atoi(buff);
         check=1;
@@ -193,80 +193,80 @@ int updatePlan(Calendar *p){
     p->month= -1;
     check = -1;
     while(p->month>12||p->month<=0||check!=1){
-        fputs("ì›”: ",stdout);
+        fputs("¿ù: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->month=atoi(buff);
         check=1;
-        if(p->month>12||p->month<=0) printf("-> 1~12ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");  //1~12 ì´ì™¸ì˜ ìˆ«ì ì…ë ¥ì‹œ ë‹¤ì‹œ ì…ë ¥
+        if(p->month>12||p->month<=0) printf("-> 1~12ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");  //1~12 ÀÌ¿ÜÀÇ ¼ıÀÚ ÀÔ·Â½Ã ´Ù½Ã ÀÔ·Â
     }
 
     p->day = -1;
     check = -1;
     while(p->day>31||p->day<=0||check!=1){
-        fputs("ì¼: ",stdout);
+        fputs("ÀÏ: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->day=atoi(buff);
         check=1;
-        if(p->day>31||p->day<=0) printf("-> 1~31ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(p->day>31||p->day<=0) printf("-> 1~31ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
 
-    fputs("ê³¼ëª©ëª…: ",stdout);
+    fputs("°ú¸ñ¸í: ",stdout);
     clearbuffer();
     scanf("%[^\n]s", p->subject);
 
     p->type = -1;
     check = -1;
     while(p->type<1||p->type>4||check!=1){
-        fputs("ë¶„ë¥˜(1.ì‹œí—˜ 2.ê³¼ì œ 3.íŒ€í”Œ 4.ê¸°íƒ€): ",stdout);
+        fputs("ºĞ·ù(1.½ÃÇè 2.°úÁ¦ 3.ÆÀÇÃ 4.±âÅ¸): ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         p->type=atoi(buff);
         check=1;
-        if(p->type<1||p->type>4) printf("-> 1~4ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(p->type<1||p->type>4) printf("-> 1~4ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
 
     int choice = -1;
     check=-1;
     while((choice!=1&&choice!=2)||check!=1)
     {
-        printf("ë¹„ê³ ë¥¼ ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(1.ì˜ˆ 2.ì•„ë‹ˆì˜¤): ");
+        printf("ºñ°í¸¦ ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î?(1.¿¹ 2.¾Æ´Ï¿À): ");
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         choice=atoi(buff);
         check=1;
-        if(choice!=1&&choice!=2) printf("-> 1ë˜ëŠ” 2ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(choice!=1&&choice!=2) printf("-> 1¶Ç´Â 2¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
-    if(choice ==1){  //ë¹„ê³  ì…ë ¥(1.ì˜ˆ) ì„ íƒì‹œ ë¹„ê³  ì…ë ¥ë°›ìŒ
-        fputs("[ìˆ˜ì •] ë¹„ê³ : ",stdout);
+    if(choice ==1){  //ºñ°í ÀÔ·Â(1.¿¹) ¼±ÅÃ½Ã ºñ°í ÀÔ·Â¹ŞÀ½
+        fputs("[¼öÁ¤] ºñ°í: ",stdout);
         clearbuffer();
         scanf("%[^\n]s", p->text);
     }
     else strcpy(p->text,"-");
 
     return 1;
-} // ì¼ì • ìˆ˜ì • í•¨ìˆ˜ 
+} // ÀÏÁ¤ ¼öÁ¤ ÇÔ¼ö 
 
 int deletePlan(Calendar *s){
     s->year = -1;
-    printf("\n-> ì‚­ì œ ë˜ì—ˆìŠµë‹ˆë‹¤\n");
+    printf("\n-> »èÁ¦ µÇ¾ú½À´Ï´Ù\n");
     return 1;
 }
 
@@ -274,26 +274,26 @@ void searchPlan_type(Calendar p[], int count){
     char buff[100];
     int scnt = 0;
     int search=-1;
-    printf("\nê²€ìƒ‰í•  ë¶„ë¥˜ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”(ì¢…ë£Œ: 0)\n");
+    printf("\n°Ë»öÇÒ ºĞ·ù¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä(Á¾·á: 0)\n");
     printf("----------------------------\n");
-    printf("1. ì‹œí—˜\n2. ê³¼ì œ\n3. íŒ€í”Œ\n4. ê¸°íƒ€\n");
+    printf("1. ½ÃÇè\n2. °úÁ¦\n3. ÆÀÇÃ\n4. ±âÅ¸\n");
     printf("----------------------------\n");
     while(search<0||search>4){   
         fputs("=> ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         search=atoi(buff);
-        if((search<0||search>4)) printf("-> 1~4ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if((search<0||search>4)) printf("-> 1~4ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
-    if(search==0) return; //0ì…ë ¥ì‹œ ì²˜ìŒìœ¼ë¡œ
+    if(search==0) return; //0ÀÔ·Â½Ã Ã³À½À¸·Î
     char *p_type = transer(search);
 
-    printf("\n> %s ì¼ì •ì„ ê²€ìƒ‰í•©ë‹ˆë‹¤\n",p_type);
-    printf("\nNo\të…„\tì›”\tì¼\të¶„ë¥˜\tê³¼ëª©\të¹„ê³ \n");
+    printf("\n> %s ÀÏÁ¤À» °Ë»öÇÕ´Ï´Ù\n",p_type);
+    printf("\nNo\t³â\t¿ù\tÀÏ\tºĞ·ù\t°ú¸ñ\tºñ°í\n");
     printf("-------------------------------------------------------\n");
     for(int i=0; i<count; i++)
     {
@@ -305,7 +305,7 @@ void searchPlan_type(Calendar p[], int count){
         }
     }
     if(scnt==0){
-        printf("-> %s ì¼ì •ì´ ì—†ìŠµë‹ˆë‹¤\n",p_type);
+        printf("-> %s ÀÏÁ¤ÀÌ ¾ø½À´Ï´Ù\n",p_type);
         free(p_type);
     }
     printf("\n");
@@ -315,39 +315,39 @@ void searchPlan_month(Calendar *p, int count){
     char buff[100];
     int choice = -1;
     while(choice != 1 && choice != 2){
-        printf("\në‚ ì§œ ê²€ìƒ‰ë°©ë²•ì„ ì…ë ¥í•´ì£¼ì„¸ìš”(ì¢…ë£Œ: 0)");
+        printf("\n³¯Â¥ °Ë»ö¹æ¹ıÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä(Á¾·á: 0)");
         printf("\n----------------------------\n");
-        printf("1. ì›”(Month)ë¡œ ê²€ìƒ‰\n2. ì›”(Month) & ì¼(Day)ë¡œ ê²€ìƒ‰\n");
+        printf("1. ¿ù(Month)·Î °Ë»ö\n2. ¿ù(Month) & ÀÏ(Day)·Î °Ë»ö\n");
         printf("----------------------------\n");
         fputs("=> ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         choice=atoi(buff);
         if(choice == 0) return;
-        if(choice!=1 && choice!=2) printf("-> 1ë˜ëŠ” 2ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+        if(choice!=1 && choice!=2) printf("-> 1¶Ç´Â 2¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
     }
     if(choice ==1){
-        printf("\n[ ì›”(Month)ë¡œ ì¼ì •ê²€ìƒ‰ ]\n");
+        printf("\n[ ¿ù(Month)·Î ÀÏÁ¤°Ë»ö ]\n");
         int scnt = 0;
         int s_month = 0;
         while(s_month<=0||s_month>12){
-            fputs("\nê²€ìƒ‰ì„ ì›í•˜ì‹œëŠ” ì›”ì„ ì…ë ¥í•´ì£¼ì„¸ìš”: ",stdout);
+            fputs("\n°Ë»öÀ» ¿øÇÏ½Ã´Â ¿ùÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä: ",stdout);
             clearbuffer();
             scanf("%s", buff);
             if(check_char(buff)){
-                printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+                printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
                 continue;
             }
             s_month=atoi(buff);
-            if(s_month<=0||s_month>12) printf("-> 1~12ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            if(s_month<=0||s_month>12) printf("-> 1~12ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
         }
-        printf("\n> %dì›” ì¼ì •ì„ ê²€ìƒ‰í•©ë‹ˆë‹¤\n",s_month);
+        printf("\n> %d¿ù ÀÏÁ¤À» °Ë»öÇÕ´Ï´Ù\n",s_month);
     
-        printf("\nNo\të…„\tì›”\tì¼\të¶„ë¥˜\tê³¼ëª©\të¹„ê³ \n");
+        printf("\nNo\t³â\t¿ù\tÀÏ\tºĞ·ù\t°ú¸ñ\tºñ°í\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
@@ -358,44 +358,44 @@ void searchPlan_month(Calendar *p, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("\n-> í•´ë‹¹ ì›”ì—ëŠ” ì¼ì •ì´ ì—†ìŠµë‹ˆë‹¤\n");
+        if(scnt==0) printf("\n-> ÇØ´ç ¿ù¿¡´Â ÀÏÁ¤ÀÌ ¾ø½À´Ï´Ù\n");
         printf("\n");
     }
     else if(choice == 2)
     {
-        printf("\n[ ì›”(Month)ê³¼ ì¼(Day)ë¡œ ì¼ì •ê²€ìƒ‰ ]\n");
+        printf("\n[ ¿ù(Month)°ú ÀÏ(Day)·Î ÀÏÁ¤°Ë»ö ]\n");
         int scnt = 0;
         int s_month=-1;
         int s_day=-1;
         while(s_month<=0||s_month>12||s_day<=0||s_day>31){ 
-            printf("\nê²€ìƒ‰ì„ ì›í•˜ì‹œëŠ” ì›”ê³¼ ì¼ì„ ìˆœì„œëŒ€ë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”\n");
-            fputs("ì›”: ",stdout);
+            printf("\n°Ë»öÀ» ¿øÇÏ½Ã´Â ¿ù°ú ÀÏÀ» ¼ø¼­´ë·Î ÀÔ·ÂÇØÁÖ¼¼¿ä\n");
+            fputs("¿ù: ",stdout);
             clearbuffer();
             scanf("%s", buff);
             if(check_char(buff)){
-                printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+                printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
                 continue;
             }
             s_month=atoi(buff);
             if(s_month<=0||s_month>12) 
             {
-                printf("-> 1~12ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+                printf("-> 1~12ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
                 continue;
             }
 
-            fputs("ì¼: ",stdout);
+            fputs("ÀÏ: ",stdout);
             clearbuffer();
             scanf("%s", buff);
             if(check_char(buff)){
-                printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+                printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
                 continue;
             }
             s_day=atoi(buff); 
-            if(s_day<=0||s_day>31) printf("-> 1~31ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");  
+            if(s_day<=0||s_day>31) printf("-> 1~31ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");  
         }
         
-        printf("\n> %dì›” %dì¼ ì¼ì •ì„ ê²€ìƒ‰í•©ë‹ˆë‹¤.\n",s_month,s_day);
-        printf("\nNo\të…„\tì›”\tì¼\të¶„ë¥˜\tê³¼ëª©\të¹„ê³ \n");
+        printf("\n> %d¿ù %dÀÏ ÀÏÁ¤À» °Ë»öÇÕ´Ï´Ù.\n",s_month,s_day);
+        printf("\nNo\t³â\t¿ù\tÀÏ\tºĞ·ù\t°ú¸ñ\tºñ°í\n");
         printf("-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
@@ -406,7 +406,7 @@ void searchPlan_month(Calendar *p, int count){
                 scnt++;
             }
         }
-        if(scnt==0) printf("\n-> í•´ë‹¹ ë‚ ì§œì—ëŠ” ì¼ì •ì´ ì—†ìŠµë‹ˆë‹¤\n");
+        if(scnt==0) printf("\n-> ÇØ´ç ³¯Â¥¿¡´Â ÀÏÁ¤ÀÌ ¾ø½À´Ï´Ù\n");
         printf("\n");
     }
 }
@@ -417,25 +417,25 @@ void showCalendar(int ndays, int d1){
         printf("\t"); 
     }
     for(int i = 1; i<=ndays; i++){
-        printf(" %d\t",i); // day ì¶œë ¥
-        if((i+d1)%7 == 0) printf("\n"); //7ë¡œ ë‚˜ëˆ ì„œ ë‚˜ë¨¸ì§€ê°€ 0 ì´ë©´ ì¤„ë°”ê¿ˆ
+        printf(" %d\t",i); // day Ãâ·Â
+        if((i+d1)%7 == 0) printf("\n"); //7·Î ³ª´²¼­ ³ª¸ÓÁö°¡ 0 ÀÌ¸é ÁÙ¹Ù²Ş
     }
-}// ì›”ì„ ì…ë ¥ë°›ì•„ í•´ë‹¹ ì›”ì˜ calenderë¥¼ ì¶œë ¥í•˜ëŠ” í•¨ìˆ˜
+}// ¿ùÀ» ÀÔ·Â¹Ş¾Æ ÇØ´ç ¿ùÀÇ calender¸¦ Ãâ·ÂÇÏ´Â ÇÔ¼ö
 
 int helpCalendar(char *buff){
     int month;
      while(YES){
-        printf("\n[ ë‹¬ë ¥ë³´ê¸° ]\n");
-        fputs("ì›”: ",stdout);
+        printf("\n[ ´Ş·Âº¸±â ]\n");
+        fputs("¿ù: ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
-            printf("-> ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         month=atoi(buff); 
         if(month>12 || month<1) {
-            printf("-> 1~12ì˜ ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”\n\n");
+            printf("-> 1~12ÀÇ ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä\n\n");
             continue;
         }
         else break;
@@ -446,18 +446,18 @@ int helpCalendar(char *buff){
 int is_leap_year(int y){
     if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
     else return NO;
-} // ìœ¤ë…„ì„ íŒë³„í•˜ê¸° ìœ„í•œ help function 
+} // À±³âÀ» ÆÇº°ÇÏ±â À§ÇÑ help function 
 
 int month_days(int y, int m){
     if(m==1||m==3||m==5||m==7||m==8||m==10||m==12) 
         return 31;
     else if(m==4||m==6||m==9||m==11) 
         return 30;
-    else if(is_leap_year(y) == YES) // ìœ¤ë…„ì´ë©´ 29 return
+    else if(is_leap_year(y) == YES) // À±³âÀÌ¸é 29 return
         return 29;
     else
         return 28; 
-} // í•´ë‹¹ ì›”ì´ ëª‡ ì¼ì¸ì§€ í™•ì¸í•˜ê¸° ìœ„í•œ help function 
+} // ÇØ´ç ¿ùÀÌ ¸î ÀÏÀÎÁö È®ÀÎÇÏ±â À§ÇÑ help function 
 
 int first_day(int y, int m){
     int total = 1;
@@ -474,7 +474,7 @@ int first_day(int y, int m){
     }
     if(is_leap_year(y) && m>=3) total++; 
     return total%7;
-} // ë‹¬ë ¥ì˜ ì‹œì‘ ìš”ì¼ì„ í™•ì¸í•˜ëŠ” í•¨ìˆ˜ 
+} // ´Ş·ÂÀÇ ½ÃÀÛ ¿äÀÏÀ» È®ÀÎÇÏ´Â ÇÔ¼ö 
 
 void saveData(Calendar *s, int index){
     FILE *fp;
@@ -483,7 +483,7 @@ void saveData(Calendar *s, int index){
         if(s[i].year == -1) continue;
         fprintf(fp, "%d %d %d %d %s %s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].text, s[i].subject);
         }
-    fclose(fp); printf("\n-> ì¼ì •ì´ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤\n");
+    fclose(fp); printf("\n-> ÀÏÁ¤ÀÌ ÀúÀåµÇ¾ú½À´Ï´Ù\n");
     }  
 
 
@@ -491,7 +491,7 @@ int loadData(Calendar *s){
     int i = 0;
     FILE *fp;
     fp = fopen("calendar.txt", "rt");
-    if(fp ==NULL) printf("\n-> ì €ì¥ëœ ì¼ì •ì´ ì—†ìŠµë‹ˆë‹¤\n");
+    if(fp ==NULL) printf("\n-> ÀúÀåµÈ ÀÏÁ¤ÀÌ ¾ø½À´Ï´Ù\n");
     else{
         for(; i < 100; i++){
             fscanf(fp, "%d", &s[i].year); 
@@ -503,7 +503,7 @@ int loadData(Calendar *s){
             fscanf(fp, "%[^\n]s", s[i].subject);
         }
         fclose(fp);
-        printf("\n-> ì €ì¥ëœ ì¼ì •ì„ ë¡œë”©í–ˆìŠµë‹ˆë‹¤\n");
+        printf("\n-> ÀúÀåµÈ ÀÏÁ¤À» ·ÎµùÇß½À´Ï´Ù\n");
         return i;
     }
     return 0;
