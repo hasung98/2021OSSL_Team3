@@ -5,6 +5,10 @@
 
 <br />
 
+- 프로그램을 시작하면, 
+
+<br />
+
 - [2. 일정추가] 메뉴를 선택하여 일정을 추가합니다.   
 ![image](https://user-images.githubusercontent.com/70621926/117544989-cc8ae080-b05e-11eb-827c-c1dffaff1d58.png)
 
@@ -53,6 +57,11 @@
 
 - [6. 달력 보기] 메뉴를 선택하면 원하는 년도와 월을 입력받아 해당 년도/월의 달력을 보여줍니다.   
 ![image](https://user-images.githubusercontent.com/70621926/117544368-1e7e3700-b05c-11eb-994e-7c556d80ee23.png)
+
+<br />
+
+- [7. 일정 저장] 메뉴를 선택하면 모든 일정을 calendar.txt파일에 저장합니다. 파일이 없으면 새로 생성하여 저장합니다.   
+![image](https://user-images.githubusercontent.com/70621926/118195671-9eeece80-b486-11eb-88dd-5ec2780df224.png)
 
 <br />
 
