@@ -29,6 +29,7 @@ int selectDataNo(Calendar *p, int count);
 int updatePlan(Calendar *p);
 int deletePlan(Calendar *p);
 
+void search_Plan(Calendar p[], int count);
 void searchPlan_type(Calendar p[], int count);
 void searchPlan_month(Calendar p[], int count);
 
