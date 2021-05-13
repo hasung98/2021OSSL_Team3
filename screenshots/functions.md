@@ -66,7 +66,7 @@
 
 - [7. 일정 저장] 메뉴를 선택하면 모든 일정을 calendar.txt파일에 저장합니다. 파일이 없으면 새로 생성하여 저장합니다.   
 ![image](https://user-images.githubusercontent.com/70621926/118195671-9eeece80-b486-11eb-88dd-5ec2780df224.png)    
-![image](https://user-images.githubusercontent.com/70621926/118196324-d01bce80-b487-11eb-8c51-8d86431be335.png)
+![image](https://user-images.githubusercontent.com/70621926/118199883-f8f39200-b48e-11eb-93c9-c03a8102a14f.png)
 
 <br />
 
