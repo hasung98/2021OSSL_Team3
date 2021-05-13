@@ -10,6 +10,12 @@ int check_char(char *buff)
     return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
 }
 
+int exit(){
+
+    printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
+    return 0;
+}
+
 int selectMenu(){
     printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");

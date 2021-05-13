@@ -16,12 +16,14 @@ typedef struct{
   char text[100];
 } Calendar;
 
+
+int check_char(char *buff);
+int exit();
+
 int selectMenu();
 void clearbuffer();
 int createPlan(Calendar *p);
 int readPlan(Calendar p);
-
-int check_char(char *buff);
 
 void listPlan(Calendar *p, int count);
 int selectDataNo(Calendar *p, int count);
