@@ -39,7 +39,7 @@ void showCalendar(int month, int ndays, int d1);
 int is_leap_year(int x);
 int month_days(int y, int m);
 int first_day(int y, int m);
-void Calendar(char *buff);
+void Calendar(int year);
 
 int loadData(Planner *s); //파일 불러오기
 void saveData(Planner *s, int index); //파일 저장하기

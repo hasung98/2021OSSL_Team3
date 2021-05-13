@@ -550,7 +550,8 @@ void showCalendar(int month, int ndays, int d1){
 
 void Calendar(int year){
     char buff[100];
-    int month,ndays,d1;
+    int month=-2;
+    int ndays,d1;
 
      while(month>12 || month<1){
         printf("\n[ 달력보기 ]\n");
@@ -567,7 +568,7 @@ void Calendar(int year){
             continue;
         }
     }
-    ndays = month_days(2021,month);
+    ndays = month_days(year,month);
     d1= first_day(2021,month);
     showCalendar(month, ndays,d1);
 }
