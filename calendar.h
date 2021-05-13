@@ -14,7 +14,7 @@ typedef struct{
   int type; // 과제 or 시험 or 팀프로젝트
   char subject[100]; // 과목
   char text[100];
-} Calendar;
+} Planner;
 
 
 int check_char(char *buff);
@@ -22,24 +22,24 @@ int finish();
 
 int selectMenu();
 void clearbuffer();
-int createPlan(Calendar *p);
-int readPlan(Calendar p);
+int createPlan(Planner *p);
+int readPlan(Planner p);
 
-void listPlan(Calendar *p, int count);
-int selectDataNo(Calendar *p, int count);
+void listPlan(Planner *p, int count);
+int selectDataNo(Planner *p, int count);
 
-int updatePlan(Calendar *p);
-int deletePlan(Calendar *p);
+int updatePlan(Planner *p);
+int deletePlan(Planner *p);
 
-void search_Plan(Calendar p[], int count);
-void searchPlan_type(Calendar p[], int count);
-void searchPlan_month(Calendar p[], int count);
+void search_Plan(Planner p[], int count);
+void searchPlan_type(Planner p[], int count);
+void searchPlan_month(Planner p[], int count);
 
 void showCalendar(int month, int ndays, int d1);
 int is_leap_year(int x);
 int month_days(int y, int m);
 int first_day(int y, int m);
-int helpCalendar(char *buff);
+void Calendar(char *buff);
 
-int loadData(Calendar *s); //파일 불러오기
-void saveData(Calendar *s, int index); //파일 저장하기
+int loadData(Planner *s); //파일 불러오기
+void saveData(Planner *s, int index); //파일 저장하기
