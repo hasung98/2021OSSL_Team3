@@ -18,7 +18,7 @@ typedef struct{
 
 
 int check_char(char *buff);
-int exit();
+int finish();
 
 int selectMenu();
 void clearbuffer();

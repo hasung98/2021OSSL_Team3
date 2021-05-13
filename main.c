@@ -11,7 +11,7 @@ int main (){
     while(exit){
         menu = selectMenu();
         if(menu == 0) {
-            exit = exit(); //프로그램 종료
+            exit = finish(); //프로그램 종료
         }
         if(menu ==1||menu==3||menu==4||menu ==5)
         {
