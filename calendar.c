@@ -11,7 +11,6 @@ int check_char(char *buff)
 }
 
 int finish(){
-
     printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
     return 0;
 }
@@ -52,7 +51,7 @@ void clearbuffer(){
     while (getchar() != '\n');
 }
 
-int createPlan(Calendar *p){
+int createPlan(Planner *p){
     char buff[100];
     int check=-1; //숫자로만 구성되었는지 확인
     printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
@@ -152,7 +151,7 @@ char* transer(int type){
     return p_type;
 } //숫자로 된 type을 문자로 바꾸는 함수
 
-int readPlan(Calendar p){
+int readPlan(Planner p){
     char *p_type;
     p_type = transer(p.type);
     printf("%d년\t%d월\t%d일\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
@@ -160,7 +159,7 @@ int readPlan(Calendar p){
     return 1;
 }// 일정 read 함수 
 
-void listPlan(Calendar *p, int count){
+void listPlan(Planner *p, int count){
     int i = 0;
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
@@ -171,7 +170,7 @@ void listPlan(Calendar *p, int count){
     }
 } // 전체 일정 출력 함수
 
-int selectDataNo(Calendar *p, int count){
+int selectDataNo(Planner *p, int count){
     int num;
     char buff[100];
     listPlan(p,count);
@@ -189,7 +188,7 @@ int selectDataNo(Calendar *p, int count){
     return num;
 } // data 선택 함수 
 
-int updatePlan(Calendar *p){
+int updatePlan(Planner *p){
     char buff[100];
     int check=-1; //숫자로만 구성되었는지 확인
 
@@ -280,7 +279,7 @@ int updatePlan(Calendar *p){
     return 1;
 } // 일정 수정 함수 
 
-int deletePlan(Calendar *s){
+int deletePlan(Planner *s){
     int ok=-1;
     char buff[100];
     while(ok!=0&&ok!=1){
@@ -302,7 +301,7 @@ int deletePlan(Calendar *s){
     else return 0;
 }
 
-void search_Plan(Calendar p[], int count){
+void search_Plan(Planner p[], int count){
     char buff[100];
     int choice = -1;
     while(choice != 1 && choice != 2){    
@@ -330,7 +329,7 @@ void search_Plan(Calendar p[], int count){
     }
 }
 
-void searchPlan_type(Calendar p[], int count){
+void searchPlan_type(Planner p[], int count){
     char buff[100];
     int scnt = 0;
     int search=-1;
@@ -371,7 +370,7 @@ void searchPlan_type(Calendar p[], int count){
     printf("\n");
 }
 
-void searchPlan_month(Calendar *p, int count){
+void searchPlan_month(Planner *p, int count){
     char buff[100];
     int choice = -1;
     while(choice != 1 && choice != 2){
@@ -471,39 +470,6 @@ void searchPlan_month(Calendar *p, int count){
     }
 }
 
-void showCalendar(int month, int ndays, int d1){
-    printf("\n\n\t\t   [ 2021년 %d월 ]\n",month);
-    printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
-    for(int i = 0; i<d1; i++){
-        printf("\t"); 
-    }
-    for(int i = 1; i<=ndays; i++){
-        printf(" %d\t",i); // day 출력
-        if((i+d1)%7 == 0) printf("\n"); //7로 나눠서 나머지가 0 이면 줄바꿈
-    }
-}// 월을 입력받아 해당 월의 calender를 출력하는 함수
-
-int helpCalendar(char *buff){
-    int month;
-     while(YES){
-        printf("\n[ 달력보기 ]\n");
-        fputs("월: ",stdout);
-        clearbuffer();
-        scanf("%s", buff);
-        if(check_char(buff)){
-            printf("-> 숫자를 입력해주세요\n\n");
-            continue;
-        }
-        month=atoi(buff); 
-        if(month>12 || month<1) {
-            printf("-> 1~12의 숫자를 입력해주세요\n\n");
-            continue;
-        }
-        else break;
-    }
-    return month;
-}
-
 int is_leap_year(int y){
     if(((y%4 == 0)&&(y%100 != 0))||(y%400 == 0)) return YES;
     else return NO;
@@ -537,7 +503,7 @@ int first_day(int y, int m){
     return total%7;
 } // 달력의 시작 요일을 확인하는 함수 
 
-void saveData(Calendar *s, int index){
+void saveData(Planner *s, int index){
     FILE *fp;
     fp = fopen("calendar.txt","wt");
     for(int i = 0; i < index; i++){ 
@@ -548,7 +514,7 @@ void saveData(Calendar *s, int index){
     }  
 
 
-int loadData(Calendar *s){
+int loadData(Planner *s){
     int i = 0;
     FILE *fp;
     fp = fopen("calendar.txt", "rt");
@@ -568,4 +534,40 @@ int loadData(Calendar *s){
         return i;
     }
     return 0;
+}
+
+void showCalendar(int month, int ndays, int d1){
+    printf("\n\n\t\t   [ 2021년 %d월 ]\n",month);
+    printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
+    for(int i = 0; i<d1; i++){
+        printf("\t"); 
+    }
+    for(int i = 1; i<=ndays; i++){
+        printf(" %d\t",i); // day 출력
+        if((i+d1)%7 == 0) printf("\n"); //7로 나눠서 나머지가 0 이면 줄바꿈
+    }
+}// 월을 입력받아 해당 월의 calender를 출력하는 함수
+
+void Calendar(int year){
+    char buff[100];
+    int month,ndays,d1;
+
+     while(month>12 || month<1){
+        printf("\n[ 달력보기 ]\n");
+        fputs("월: ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        month=atoi(buff); 
+        if(month>12 || month<1) {
+            printf("-> 1~12의 숫자를 입력해주세요\n\n");
+            continue;
+        }
+    }
+    ndays = month_days(2021,month);
+    d1= first_day(2021,month);
+    showCalendar(month, ndays,d1);
 }

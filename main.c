@@ -1,12 +1,11 @@
 #include "calendar.h"
 
 int main (){
-    Calendar p[100];
+    Planner p[100];
     int count = loadData(p); 
     int index = count; 
     int menu;
-    int exit =1;
-    char buff[100];
+    int exit = 1;
 
     while(exit){
         menu = selectMenu();
@@ -44,12 +43,8 @@ int main (){
             search_Plan(p, count);
         }
         else if (menu == 6){
-            int month,ndays,d1;
-
-            month = helpCalendar(buff);   
-            ndays = month_days(2021,month);
-            d1= first_day(2021,month);
-            showCalendar(month, ndays,d1);
+            int year = 2021; //2021년도 달력으로 년도 고정
+            Calendar(year);
         }
         else if (menu == 7){
             saveData(p,index); 
