@@ -167,9 +167,19 @@ void listPlan(Calendar *p, int count){
 
 int selectDataNo(Calendar *p, int count){
     int num;
+    char buff[100];
     listPlan(p,count);
-    printf("\n-> 번호를 입력하세요(종료: 0): ");
-    scanf(" %d",&num);
+    while(1){
+        fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue; 
+        }
+        break;
+    }
+    num=atoi(buff);
     return num;
 } // data 선택 함수 
 
@@ -265,19 +275,19 @@ int updatePlan(Calendar *p){
 } // 일정 수정 함수 
 
 int deletePlan(Calendar *s){
-    int ok;
+    int ok=-1;
     char buff[100];
-    while(1){
-        fputs("\n** 정말로 삭제하시겠습니까?(삭제: 1) ",stdout);
+    while(ok!=0&&ok!=1){
+        fputs("\n** 정말로 삭제하시겠습니까?(예:1 아니오:0) ",stdout);
         clearbuffer();
         scanf("%s", buff);
         if(check_char(buff)){
             printf("-> 숫자를 입력해주세요\n\n");
             continue;
         }
-        break;
+        ok=atoi(buff);
+        if(ok!=1&&ok!=0) printf("0또는 1을 입력해주세요\n\n");
     }
-    ok=atoi(buff);
     if(ok == 1){
         s->year = -1;
         printf("\n-> 삭제 되었습니다\n");
