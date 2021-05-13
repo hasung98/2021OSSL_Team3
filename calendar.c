@@ -265,9 +265,25 @@ int updatePlan(Calendar *p){
 } // 일정 수정 함수 
 
 int deletePlan(Calendar *s){
-    s->year = -1;
-    printf("\n-> 삭제 되었습니다\n");
-    return 1;
+    int ok;
+    char buff[100];
+    while(1){
+        fputs("\n** 정말로 삭제하시겠습니까?(삭제: 1) ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue;
+        }
+        break;
+    }
+    ok=atoi(buff);
+    if(ok == 1){
+        s->year = -1;
+        printf("\n-> 삭제 되었습니다\n");
+        return 1;
+    }
+    else return 0;
 }
 
 void searchPlan_type(Calendar p[], int count){

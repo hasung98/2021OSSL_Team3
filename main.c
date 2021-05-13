@@ -35,16 +35,11 @@ int main (){
             }
         }
         else if(menu == 4){
+            int ok=-1;
             int no = selectDataNo(p,index);
-            if(no>0){
-                int ok;
-                printf("\n** 정말로 삭제하시겠습니까?(삭제: 1) ");
-                scanf(" %d",&ok);
-                if(ok == 1){
-                    deletePlan(&p[no-1]);
-                    count--;
-                }
-            }
+            if(no>0)
+                ok = deletePlan(&p[no-1]);
+            if(ok==1) count--;
         }
         else if (menu == 5){
             char buff[100];
