@@ -1,7 +1,13 @@
 # 기본 기능
 
-- [make]를 입력하여 필요한 object file들과 실행파일을 만듭니다.   
-![image](https://user-images.githubusercontent.com/70621926/117542431-94ca6b80-b053-11eb-98c8-7b630237867e.png)
+- [make]를 입력하여 필요한 object file들과 실행파일을 만들고, 프로그램을 실행합니다.   
+![image](https://user-images.githubusercontent.com/70621926/118196151-77e4cc80-b487-11eb-90a8-59af5fde029b.png)
+
+<br />
+
+- 프로그램을 시작하면, calendar.txt파일에 저장된 기존 일정들을 읽어옵니다. 파일이 없다면 저장된 일정이 없다는 안내문구가 나타납니다.
+![image](https://user-images.githubusercontent.com/70621926/118195912-13297200-b487-11eb-9400-8bcd3422aed3.png)    
+![image](https://user-images.githubusercontent.com/70621926/118195967-2a685f80-b487-11eb-8b94-80900e16bab8.png)
 
 <br />
 
@@ -21,7 +27,8 @@
 <br />
 
 - [4. 일정 삭제] 메뉴를 선택하여 원하는 일정을 삭제할 수 있습니다.   
-![image](https://user-images.githubusercontent.com/70621926/117544084-9e0b0680-b05a-11eb-938d-ac9d39b87659.png)
+![image](https://user-images.githubusercontent.com/70621926/118199779-cba6e400-b48e-11eb-9fc2-2a039c31b534.png)
+
 
 <br />
 
@@ -52,7 +59,14 @@
 <br />
 
 - [6. 달력 보기] 메뉴를 선택하면 원하는 년도와 월을 입력받아 해당 년도/월의 달력을 보여줍니다.   
-![image](https://user-images.githubusercontent.com/70621926/117544368-1e7e3700-b05c-11eb-994e-7c556d80ee23.png)
+![image](https://user-images.githubusercontent.com/70621926/118197124-47059700-b489-11eb-8c2c-fdca031ff2b2.png)
+
+
+<br />
+
+- [7. 일정 저장] 메뉴를 선택하면 모든 일정을 calendar.txt파일에 저장합니다. 파일이 없으면 새로 생성하여 저장합니다.   
+![image](https://user-images.githubusercontent.com/70621926/118195671-9eeece80-b486-11eb-88dd-5ec2780df224.png)   
+![image](https://user-images.githubusercontent.com/70621926/118199959-1a547e00-b48f-11eb-9cc5-7e9a6b7db32d.png)
 
 <br />
 
@@ -60,9 +74,12 @@
 ![image](https://user-images.githubusercontent.com/70621926/117544819-17f0bf00-b05e-11eb-94e9-ab6ec6c58223.png)
 -----------------------------------------
 # 부가기능
-- 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다. 범위 이외의 값이 입력되면, 값을 다시 입력받습니다.   
-![image](https://user-images.githubusercontent.com/70621926/117544444-7157ee80-b05c-11eb-9e23-fa7ce8079d88.png)   
-![image](https://user-images.githubusercontent.com/70621926/117544852-453d6d00-b05e-11eb-9f1b-6227285dfe74.png)
+- 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다.     
+숫자가 아닌 문자가 입력되거나 범위 이외의 값이 입력되는 경우, error메세지와 함께 값을 다시 입력받습니다.    
+![image](https://user-images.githubusercontent.com/70621926/118196648-533d2480-b488-11eb-911a-0fb476fe36cd.png)    
+![image](https://user-images.githubusercontent.com/70621926/118196741-7ec00f00-b488-11eb-883f-ef628e728ed6.png)    
+![image](https://user-images.githubusercontent.com/70621926/118196815-9bf4dd80-b488-11eb-8407-110873cf2d11.png)    
+![image](https://user-images.githubusercontent.com/70621926/118196851-ac0cbd00-b488-11eb-97b8-886056e5e88b.png)
 
 <br />
 
