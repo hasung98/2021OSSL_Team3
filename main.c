@@ -42,31 +42,7 @@ int main (){
             if(ok==1) count--;
         }
         else if (menu == 5){
-            char buff[100];
-            int choice = -1;
-            while(choice != 1 && choice != 2){    
-                printf("\n[ 일정 검색 ]\n");
-                printf("\n검색방법을 입력해주세요(종료: 0)");
-                printf("\n----------------------------\n");
-                printf("1. 분류로 검색(시험/과제/팀플/기타)\n2. 날짜로 검색\n");
-                printf("----------------------------\n");
-                fputs("=> ",stdout);
-                clearbuffer();
-                scanf("%s", buff);
-                if(check_char(buff)){
-                    printf("\n-> 숫자를 입력해주세요\n\n");
-                    continue;
-                }
-                choice=atoi(buff);
-                if(choice == 0) break; //0 입력시 처음으로
-                if(choice!=1 && choice!=2) printf("-> 1또는 2를 입력해주세요\n\n");
-            }
-            if(choice==1){
-                searchPlan_type(p,count);
-            }
-            else if(choice==2){
-                searchPlan_month(p,count);
-            }
+            search_Plan(p, count);
         }
         else if (menu == 6){
             int month,ndays,d1;
