@@ -27,7 +27,7 @@
 <br />
 
 - [4. 일정 삭제] 메뉴를 선택하여 원하는 일정을 삭제할 수 있습니다.   
-![image](https://user-images.githubusercontent.com/70621926/118197322-a9f72e00-b489-11eb-97bf-b562dfd4df78.png)
+![image](https://user-images.githubusercontent.com/70621926/118199779-cba6e400-b48e-11eb-9fc2-2a039c31b534.png)
 
 
 <br />
