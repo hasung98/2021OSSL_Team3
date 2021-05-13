@@ -1,11 +1,13 @@
 # 기본 기능
 
-- [make]를 입력하여 필요한 object file들과 실행파일을 만듭니다.   
+- [make]를 입력하여 필요한 object file들과 실행파일을 만들고, 프로그램을 실행합니다.   
 ![image](https://user-images.githubusercontent.com/70621926/117542431-94ca6b80-b053-11eb-98c8-7b630237867e.png)
 
 <br />
 
-- 프로그램을 시작하면, 
+- 프로그램을 시작하면, calendar.txt파일에 저장된 기존 일정들을 읽어옵니다. 파일이 없다면 저장된 일정이 없다는 안내문구가 나타납니다.
+![image](https://user-images.githubusercontent.com/70621926/118195912-13297200-b487-11eb-9400-8bcd3422aed3.png)    
+![image](https://user-images.githubusercontent.com/70621926/118195967-2a685f80-b487-11eb-8b94-80900e16bab8.png)
 
 <br />
 
