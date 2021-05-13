@@ -58,7 +58,8 @@
 <br />
 
 - [6. 달력 보기] 메뉴를 선택하면 원하는 년도와 월을 입력받아 해당 년도/월의 달력을 보여줍니다.   
-![image](https://user-images.githubusercontent.com/70621926/117544368-1e7e3700-b05c-11eb-994e-7c556d80ee23.png)
+![image](https://user-images.githubusercontent.com/70621926/118197124-47059700-b489-11eb-8c2c-fdca031ff2b2.png)
+
 
 <br />
 
