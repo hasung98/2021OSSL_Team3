@@ -411,7 +411,8 @@ void searchPlan_month(Calendar *p, int count){
     }
 }
 
-void showCalendar(int ndays, int d1){
+void showCalendar(int month, int ndays, int d1){
+    printf("\n\n\t\t   [ 2021³â %d¿ù ]\n",month);
     printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
     for(int i = 0; i<d1; i++){
         printf("\t"); 

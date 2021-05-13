@@ -32,7 +32,7 @@ int deletePlan(Calendar *p);
 void searchPlan_type(Calendar p[], int count);
 void searchPlan_month(Calendar p[], int count);
 
-void showCalendar(int ndays, int d1);
+void showCalendar(int month, int ndays, int d1);
 int is_leap_year(int x);
 int month_days(int y, int m);
 int first_day(int y, int m);

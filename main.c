@@ -79,8 +79,7 @@ int main (){
             month = helpCalendar(buff);   
             ndays = month_days(2021,month);
             d1= first_day(2021,month);
-            printf("\n\n\t\t   [ 2021년 %d월 ]\n",month);
-            showCalendar(ndays,d1);
+            showCalendar(month, ndays,d1);
         }
         else if (menu == 7){
             saveData(p,index); 
