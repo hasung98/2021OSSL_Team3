@@ -1,6 +1,6 @@
 #include "calendar.h"
 
-int check_char(char *buff) // 문자가 들어있는지 check
+int check_char(char *buff) // 문자가 들어있는지 check 함수
 {
     int N=strlen(buff);
     int i ;
@@ -14,7 +14,7 @@ void clearbuffer(){
     while (getchar() != '\n');
 }
 
-char* transer(int type){  //숫자"type"을 문자"type"으로 변환
+char* transer(int type){  //숫자"type"을 문자"type"으로 변환 함수
     char* p_type = malloc(sizeof(char)*100);
     if(type==1) strcpy(p_type , "시험");
     else if(type==2) strcpy(p_type, "과제");
@@ -302,7 +302,7 @@ int selectDataNo(Planner *p, int count){
 } // data 선택 함수 
 
 
-void search_Plan(Planner p[], int count){
+void search_Plan(Planner p[], int count){ // 검색방법 선택 함수
     char buff[100];
     int choice = -1;
     while(choice != 1 && choice != 2){    
@@ -330,14 +330,12 @@ void search_Plan(Planner p[], int count){
     }
 }
 
-void searchPlan_type(Planner p[], int count){
+void searchPlan_type(Planner p[], int count){ // 분류로 일정검색
     char buff[100];
     int scnt = 0;
     int search=-1;
-    printf("\n검색할 분류를 입력해주세요(종료: 0)\n");
-    printf("----------------------------\n");
-    printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n");
-    printf("----------------------------\n");
+    printf("\n검색할 분류를 입력해주세요(종료: 0)\n----------------------------\n");
+    printf("1. 시험\n2. 과제\n3. 팀플\n4. 기타\n----------------------------\n");
     while(search<0||search>4){   
         fputs("=> ",stdout);
         clearbuffer();

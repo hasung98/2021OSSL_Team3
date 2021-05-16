@@ -26,7 +26,7 @@ int finish(); // 프로그램 종료
 
 
 // 일정 추가 or 삭제 함수
-int createPlan(Planner *p); // 일정 추가
+void saveData(Planner *s, int index); // 일정 추가
 int updatePlan(Planner *p); // 일정 수정
 int deletePlan(Planner *p); // 일정 삭제
 
@@ -35,11 +35,10 @@ int printPlan(Planner p); // 일정 출력
 void totalPlan(Planner *p, int count); // 전체일정 출력
 
 
-
 // 일정검색 함수
-void search_Plan(Planner p[], int count);
-void searchPlan_type(Planner p[], int count);
-void searchPlan_month(Planner p[], int count);
+void search_Plan(Planner p[], int count); // 검색방법 선택
+void searchPlan_type(Planner p[], int count); // 분류로 검색
+void searchPlan_month(Planner p[], int count); // 날짜로 검색
 
 // 달력 함수
 void showCalendar(int month, int ndays, int d1);
