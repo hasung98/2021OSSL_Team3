@@ -41,11 +41,11 @@ void searchPlan_type(Planner p[], int count); // 분류로 검색
 void searchPlan_month(Planner p[], int count); // 날짜로 검색
 
 // 달력 함수
-void showCalendar(int month, int ndays, int d1);
-int is_leap_year(int x); 
-int month_days(int y, int m);
-int first_day(int y, int m); 
-void Calendar(int year); 
+void showCalendar(int month, int ndays, int d1); // 달력 출력
+int is_leap_year(int x); // 윤년 판별
+int month_days(int y, int m); // '월'이 몇일인지 확인
+int first_day(int y, int m); // 시작 요일 확인
+void Calendar(int year); //helper function 
 
 // File I/O
 int loadData(Planner *s); //파일 불러오기
