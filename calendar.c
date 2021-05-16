@@ -281,7 +281,7 @@ void totalPlan(Planner *p, int count){ // 전체일정 출력 함수
         printf("%d\t",i+1);
         printPlan(p[i]);
     }
-} // 전체 일정 출력 함수
+} 
 
 int selectDataNo(Planner *p, int count){
     int num;

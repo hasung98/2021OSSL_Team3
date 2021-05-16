@@ -21,7 +21,9 @@ int check_char(char *buff);
 void clearbuffer();
 char* transer(int type);
 int selectMenu(); // 메뉴 선택
+int selectDataNo(Planner *p, int count); // 일정 선택
 int finish(); // 프로그램 종료
+
 
 // 일정 추가 or 삭제 함수
 int createPlan(Planner *p); // 일정 추가
@@ -32,8 +34,6 @@ int deletePlan(Planner *p); // 일정 삭제
 int printPlan(Planner p); // 일정 출력
 void totalPlan(Planner *p, int count); // 전체일정 출력
 
-// 일정 선택 함수
-int selectDataNo(Planner *p, int count);
 
 
 // 일정검색 함수
