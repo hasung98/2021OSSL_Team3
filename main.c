@@ -21,7 +21,7 @@ int main (){
             }
         }
         if(menu == 1){
-            listPlan(p,index);
+            totalPlan(p,index);
         }
         else if(menu == 2){
             count += createPlan(&p[index++]);

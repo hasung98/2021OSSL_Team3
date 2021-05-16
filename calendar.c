@@ -286,7 +286,7 @@ void totalPlan(Planner *p, int count){ // 전체일정 출력 함수
 int selectDataNo(Planner *p, int count){
     int num;
     char buff[100];
-    listPlan(p,count);
+    totalPlan(p,count);
     while(1){
         fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
         clearbuffer();
