@@ -23,6 +23,24 @@ char* transer(int type){  //숫자"type"을 문자"type"으로 변환 함수
     return p_type;
 } 
 
+int selectDataNo(Planner *p, int count){ // 일정 선택 함수
+    int num;
+    char buff[100];
+    totalPlan(p,count);
+    while(1){
+        fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue; 
+        }
+        break;
+    }
+    num=atoi(buff);
+    return num;
+} 
+
 int selectMenu(){ // 메뉴 선택
     printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
@@ -55,12 +73,12 @@ int selectMenu(){ // 메뉴 선택
     return menu;
 } 
 
-int finish(){ // 프로그램 종료
+int finish(){ // 프로그램 종료 함수
     printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
     return 0;
 }
 
-int createPlan(Planner *p){ //일정 추가
+int createPlan(Planner *p){ //일정 추가 함수
     char buff[100];
     int check = -1; //숫자로만 구성되었는지 확인
     printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
@@ -242,7 +260,7 @@ int updatePlan(Planner *p){ // 일정 수정
     return 1;
 } 
 
-int deletePlan(Planner *s){ // 일정 삭제
+int deletePlan(Planner *s){ // 일정 삭제 함수
     int ok=-1;
     char buff[100];
     while(ok!=0&&ok!=1){
@@ -282,24 +300,6 @@ void totalPlan(Planner *p, int count){ // 전체일정 출력 함수
         printPlan(p[i]);
     }
 } 
-
-int selectDataNo(Planner *p, int count){
-    int num;
-    char buff[100];
-    totalPlan(p,count);
-    while(1){
-        fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
-        clearbuffer();
-        scanf("%s", buff);
-        if(check_char(buff)){
-            printf("-> 숫자를 입력해주세요\n\n");
-            continue; 
-        }
-        break;
-    }
-    num=atoi(buff);
-    return num;
-} // data 선택 함수 
 
 
 void search_Plan(Planner p[], int count){ // 검색방법 선택 함수
@@ -373,10 +373,8 @@ void searchPlan_month(Planner *p, int count){
     char buff[100];
     int choice = -1;
     while(choice != 1 && choice != 2){
-        printf("\n날짜 검색방법을 입력해주세요(종료: 0)");
-        printf("\n----------------------------\n");
-        printf("1. 월(Month)로 검색\n2. 월(Month) & 일(Day)로 검색\n");
-        printf("----------------------------\n");
+        printf("\n날짜 검색방법을 입력해주세요(종료: 0)\n----------------------------\n");
+        printf("1. 월(Month)로 검색\n2. 월(Month) & 일(Day)로 검색\n----------------------------\n");
         fputs("=> ",stdout);
         clearbuffer();
         scanf("%s", buff);
@@ -404,9 +402,7 @@ void searchPlan_month(Planner *p, int count){
             if(s_month<=0||s_month>12) printf("-> 1~12의 숫자를 입력해주세요\n\n");
         }
         printf("\n> %d월 일정을 검색합니다\n",s_month);
-    
-        printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
-        printf("-------------------------------------------------------\n");
+        printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n-------------------------------------------------------\n");
         for(int i=0; i<count; i++)
         {
             if(p[i].year == -1) continue;

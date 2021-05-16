@@ -18,8 +18,8 @@ typedef struct{
 
 // helper 함수
 int check_char(char *buff);
-void clearbuffer();
 char* transer(int type);
+void clearbuffer();
 int selectMenu(); // 메뉴 선택
 int selectDataNo(Planner *p, int count); // 일정 선택
 int finish(); // 프로그램 종료
