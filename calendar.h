@@ -29,8 +29,8 @@ int updatePlan(Planner *p); // 일정 수정
 int deletePlan(Planner *p); // 일정 삭제
 
 // 일정 출력 함수
-int readPlan(Planner p); // 일정 출력
-void listPlan(Planner *p, int count); // 전체일정 출력
+int printPlan(Planner p); // 일정 출력
+void totalPlan(Planner *p, int count); // 전체일정 출력
 
 // 일정 선택 함수
 int selectDataNo(Planner *p, int count);

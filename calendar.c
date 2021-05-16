@@ -264,7 +264,7 @@ int deletePlan(Planner *s){ // 일정 삭제
     else return 0;
 }
 
-int readPlan(Planner p){ // 일정 출력 함수
+int printPlan(Planner p){ // 일정 출력 함수
     char *p_type;
     p_type = transer(p.type);
     printf("%d년\t%d월\t%d일\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
@@ -272,14 +272,14 @@ int readPlan(Planner p){ // 일정 출력 함수
     return 1;
 } 
 
-void listPlan(Planner *p, int count){ // 전체일정 출력 함수
+void totalPlan(Planner *p, int count){ // 전체일정 출력 함수
     int i = 0;
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
     for(i = 0; i < count; i++){
         if(p[i].year == -1) continue;
         printf("%d\t",i+1);
-        readPlan(p[i]);
+        printPlan(p[i]);
     }
 } // 전체 일정 출력 함수
 
@@ -360,7 +360,7 @@ void searchPlan_type(Planner p[], int count){
         if(p[i].year == -1) continue; 
         if(p[i].type==search){
             printf("%d\t",i+1);
-            readPlan(p[i]);
+            printPlan(p[i]);
             scnt++;
         }
     }
@@ -414,7 +414,7 @@ void searchPlan_month(Planner *p, int count){
             if(p[i].year == -1) continue;
             if(p[i].month==s_month){
                 printf("%d\t",i+1);
-                readPlan(p[i]);
+                printPlan(p[i]);
                 scnt++;
             }
         }
@@ -462,7 +462,7 @@ void searchPlan_month(Planner *p, int count){
             if(p[i].year == -1) continue;
             if(p[i].month == s_month && p[i].day == s_day){
                 printf("%d\t",i+1);
-                readPlan(p[i]);
+                printPlan(p[i]);
                 scnt++;
             }
         }
