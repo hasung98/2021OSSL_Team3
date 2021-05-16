@@ -74,15 +74,16 @@
 ![image](https://user-images.githubusercontent.com/70621926/117544819-17f0bf00-b05e-11eb-94e9-ab6ec6c58223.png)
 -----------------------------------------
 # 부가기능
+
 - 모든 입력값들은 특정한 범위 내에서만 입력이 가능합니다.     
 숫자가 아닌 문자가 입력되거나 범위 이외의 값이 입력되는 경우, error메세지와 함께 값을 다시 입력받습니다.    
 ![image](https://user-images.githubusercontent.com/70621926/118196648-533d2480-b488-11eb-911a-0fb476fe36cd.png)    
 ![image](https://user-images.githubusercontent.com/70621926/118196741-7ec00f00-b488-11eb-883f-ef628e728ed6.png)    
 ![image](https://user-images.githubusercontent.com/70621926/118196815-9bf4dd80-b488-11eb-8407-110873cf2d11.png)    
-![image](https://user-images.githubusercontent.com/70621926/118196851-ac0cbd00-b488-11eb-97b8-886056e5e88b.png)
+![image](https://user-images.githubusercontent.com/70621926/118196851-ac0cbd00-b488-11eb-97b8-886056e5e88b.png)    
 
 <br />
 
 - 메뉴를 선택하고 실행하는 중에 0을 입력하면 종료할 수 있는 기능도 내제되어 있습니다.
-![image](https://user-images.githubusercontent.com/70621926/117545924-d44c8400-b062-11eb-93e8-e21e3258839a.png)   
+![image](https://user-images.githubusercontent.com/70621926/117545924-d44c8400-b062-11eb-93e8-e21e3258839a.png)     
 ![image](https://user-images.githubusercontent.com/70621926/117545819-643dfe00-b062-11eb-8864-5cf6a34f9050.png)
