@@ -10,9 +10,8 @@ int check_char(char *buff)
     return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
 }
 
-int finish(){
-    printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
-    return 0;
+void clearbuffer(){
+    while (getchar() != '\n');
 }
 
 int selectMenu(){
@@ -47,8 +46,9 @@ int selectMenu(){
     return menu;
 } // 메뉴 선택 함수 
 
-void clearbuffer(){
-    while (getchar() != '\n');
+int finish(){
+    printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
+    return 0;
 }
 
 int createPlan(Planner *p){
@@ -503,35 +503,6 @@ int first_day(int y, int m){
     return total%7;
 } // 달력의 시작 요일을 확인하는 함수 
 
-void saveData(Planner *s, int index){
-    FILE *fp;
-    fp = fopen("calendar.txt","wt");
-    for(int i = 0; i < index; i++){ 
-        if(s[i].year == -1) continue;
-        fprintf(fp, "%d\t%d\t%d\t%d\t%s\t%s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].subject,s[i].text);
-        }
-    fclose(fp); printf("\n-> 일정이 저장되었습니다\n");
-    }  
-
-
-int loadData(Planner *s){
-    int i = 0;
-    FILE *fp;
-    fp = fopen("calendar.txt", "rt");
-    if(fp ==NULL) printf("\n-> 저장된 일정이 없습니다\n");
-    else{
-        for(; i < 100; i++){
-            fscanf(fp, "%d", &s[i].year); 
-            if(feof(fp)) break;
-            fscanf(fp, "\t%d\t%d\t%d\t%[^\n]s\t%[^\n]s\n", &s[i].month, &s[i].day, &s[i].type, s[i].subject, s[i].text); 
-        }
-        fclose(fp);
-        printf("\n-> 저장된 일정을 로딩했습니다\n");
-        return i;
-    }
-    return 0;
-}
-
 void showCalendar(int month, int ndays, int d1){
     printf("\n\n\t\t   [ 2021년 %d월 ]\n",month);
     printf("Sun\tMon\tTue\tWed\tThu\tFri\tSat\n");
@@ -568,3 +539,33 @@ void Calendar(int year){
     d1= first_day(2021,month);
     showCalendar(month, ndays,d1);
 }
+
+
+int loadData(Planner *s){
+    int i = 0;
+    FILE *fp;
+    fp = fopen("calendar.txt", "rt");
+    if(fp ==NULL) printf("\n-> 저장된 일정이 없습니다\n");
+    else{
+        for(; i < 100; i++){
+            fscanf(fp, "%d", &s[i].year); 
+            if(feof(fp)) break;
+            fscanf(fp, "\t%d\t%d\t%d\t%[^\n]s\t%[^\n]s\n", &s[i].month, &s[i].day, &s[i].type, s[i].subject, s[i].text); 
+        }
+        fclose(fp);
+        printf("\n-> 저장된 일정을 로딩했습니다\n");
+        return i;
+    }
+    return 0;
+}
+
+void saveData(Planner *s, int index){
+    FILE *fp;
+    fp = fopen("calendar.txt","wt");
+    for(int i = 0; i < index; i++){ 
+        if(s[i].year == -1) continue;
+        fprintf(fp, "%d\t%d\t%d\t%d\t%s\t%s\n",s[i].year, s[i].month, s[i].day, s[i].type, s[i].subject,s[i].text);
+        }
+    fclose(fp); printf("\n-> 일정이 저장되었습니다\n");
+    }  
+
