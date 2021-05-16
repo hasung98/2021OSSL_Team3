@@ -1,20 +1,29 @@
 #include "calendar.h"
 
-int check_char(char *buff)
+int check_char(char *buff) // 문자가 들어있는지 check
 {
     int N=strlen(buff);
     int i ;
     for(i =0;i<N;i++){
         if(!isdigit(buff[i]))   return 1;
     }
-    return 0;       //문자가 들어있으면 1, 숫자로만 구성되어있으면 0 return
+    return 0; 
 }
 
 void clearbuffer(){
     while (getchar() != '\n');
 }
 
-int selectMenu(){
+char* transer(int type){  //숫자"type"을 문자"type"으로 변환
+    char* p_type = malloc(sizeof(char)*100);
+    if(type==1) strcpy(p_type , "시험");
+    else if(type==2) strcpy(p_type, "과제");
+    else if(type==3) strcpy(p_type, "팀플");
+    else if(type==4) strcpy(p_type, "기타");
+    return p_type;
+} 
+
+int selectMenu(){ // 메뉴 선택
     printf("\n\n========== 한동 A+ 도우미 ==========\n\n");
     printf("1. 전체 일정 조회\n");
     printf("2. 일정 추가\n");
@@ -29,7 +38,7 @@ int selectMenu(){
     char buff[100];
     int menu = -1;
     int check = -1;
-    while(menu<0||menu>7||check!=1){
+    while(menu<0||menu>7||check!=1){ 
         fputs("-> 원하시는 메뉴를 입력하세요: ",stdout);
         //clearbuffer();
         scanf("%s", buff);
@@ -44,16 +53,16 @@ int selectMenu(){
         }
     }
     return menu;
-} // 메뉴 선택 함수 
+} 
 
-int finish(){
+int finish(){ // 프로그램 종료
     printf("\n프로그램이 종료됩니다. 이용해주셔서 감사합니다:)\n\n");
     return 0;
 }
 
-int createPlan(Planner *p){
+int createPlan(Planner *p){ //일정 추가
     char buff[100];
-    int check=-1; //숫자로만 구성되었는지 확인
+    int check = -1; //숫자로만 구성되었는지 확인
     printf("\nex) 년:2021 월:5 일:1 과목명:OSS 분류:2\n\n");
 
     while(check!=1){
@@ -140,55 +149,9 @@ int createPlan(Planner *p){
     else strcpy(p->text,"-");
 
     return 1;
-} // 일정 추가 함수 
+}  
 
-char* transer(int type){  
-    char* p_type = malloc(sizeof(char)*100);
-    if(type==1) strcpy(p_type , "시험");
-    else if(type==2) strcpy(p_type, "과제");
-    else if(type==3) strcpy(p_type, "팀플");
-    else if(type==4) strcpy(p_type, "기타");
-    return p_type;
-} //숫자로 된 type을 문자로 바꾸는 함수
-
-int readPlan(Planner p){
-    char *p_type;
-    p_type = transer(p.type);
-    printf("%d년\t%d월\t%d일\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
-    free(p_type);
-    return 1;
-}// 일정 read 함수 
-
-void listPlan(Planner *p, int count){
-    int i = 0;
-    printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
-    printf("-------------------------------------------------------\n");
-    for(i = 0; i < count; i++){
-        if(p[i].year == -1) continue;
-        printf("%d\t",i+1);
-        readPlan(p[i]);
-    }
-} // 전체 일정 출력 함수
-
-int selectDataNo(Planner *p, int count){
-    int num;
-    char buff[100];
-    listPlan(p,count);
-    while(1){
-        fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
-        clearbuffer();
-        scanf("%s", buff);
-        if(check_char(buff)){
-            printf("-> 숫자를 입력해주세요\n\n");
-            continue; 
-        }
-        break;
-    }
-    num=atoi(buff);
-    return num;
-} // data 선택 함수 
-
-int updatePlan(Planner *p){
+int updatePlan(Planner *p){ // 일정 수정
     char buff[100];
     int check=-1; //숫자로만 구성되었는지 확인
 
@@ -277,9 +240,9 @@ int updatePlan(Planner *p){
     else strcpy(p->text,"-");
 
     return 1;
-} // 일정 수정 함수 
+} 
 
-int deletePlan(Planner *s){
+int deletePlan(Planner *s){ // 일정 삭제
     int ok=-1;
     char buff[100];
     while(ok!=0&&ok!=1){
@@ -300,6 +263,44 @@ int deletePlan(Planner *s){
     }
     else return 0;
 }
+
+int readPlan(Planner p){ // 일정 출력 함수
+    char *p_type;
+    p_type = transer(p.type);
+    printf("%d년\t%d월\t%d일\t%s\t%s\t%s\n",p.year,p.month,p.day,p_type,p.subject,p.text);
+    free(p_type);
+    return 1;
+} 
+
+void listPlan(Planner *p, int count){ // 전체일정 출력 함수
+    int i = 0;
+    printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
+    printf("-------------------------------------------------------\n");
+    for(i = 0; i < count; i++){
+        if(p[i].year == -1) continue;
+        printf("%d\t",i+1);
+        readPlan(p[i]);
+    }
+} // 전체 일정 출력 함수
+
+int selectDataNo(Planner *p, int count){
+    int num;
+    char buff[100];
+    listPlan(p,count);
+    while(1){
+        fputs("\n-> 번호를 입력하세요(종료: 0): ",stdout);
+        clearbuffer();
+        scanf("%s", buff);
+        if(check_char(buff)){
+            printf("-> 숫자를 입력해주세요\n\n");
+            continue; 
+        }
+        break;
+    }
+    num=atoi(buff);
+    return num;
+} // data 선택 함수 
+
 
 void search_Plan(Planner p[], int count){
     char buff[100];
