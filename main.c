@@ -24,7 +24,7 @@ int main (){
             totalPlan(p,index);
         }
         else if(menu == 2){
-            count += updatePlan(&p[index++]);
+            count += createPlan(&p[index++]);
         }
         else if(menu == 3){
             int no = selectDataNo(p,index);

@@ -26,7 +26,7 @@ int finish(); // 프로그램 종료
 
 
 // 일정 추가 or 삭제 함수
-void saveData(Planner *s, int index); // 일정 추가
+int createPlan(Planner *); // 일정 추가
 int updatePlan(Planner *p); // 일정 수정
 int deletePlan(Planner *p); // 일정 삭제
 

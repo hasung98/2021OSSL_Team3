@@ -349,7 +349,7 @@ void searchPlan_type(Planner p[], int count){ // 분류로 일정검색
     }
     if(search==0) return; //0입력시 처음으로
     char *p_type = transer(search);
-
+    printf("뭘검색?: %d",search);
     printf("\n> %s 일정을 검색합니다\n",p_type);
     printf("\nNo\t년\t월\t일\t분류\t과목\t비고\n");
     printf("-------------------------------------------------------\n");
